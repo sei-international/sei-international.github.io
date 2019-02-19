@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>simple_local Database</title>
+  <title>trase_local Database</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
@@ -46,7 +46,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="index.html" class="navbar-brand"><b>simple_local</b> Database</a>
+          <a href="index.html" class="navbar-brand"><b>trase_local</b> Database</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -88,10 +88,16 @@
             <div class="box-body">
 			<div id="grid" data-columns>
 				<div class="item">
+					<img src='diagrams/orphans/tool_db_status.1degree.png' usemap='#tool_db_status' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
 					<img src='diagrams/orphans/hard_coded_tool_node_types.1degree.png' usemap='#hard_coded_tool_node_types' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
 					<img src='diagrams/orphans/version_years.1degree.png' usemap='#version_years' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/context_node_types.1degree.png' usemap='#context_node_types' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
 					<img src='diagrams/orphans/node_codes.1degree.png' usemap='#node_codes' style="max-width:100%;" border='0' alt='' align='top'></img>
@@ -100,26 +106,29 @@
 					<img src='diagrams/orphans/node_names.1degree.png' usemap='#node_names' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
-					<img src='diagrams/orphans/tool_context_node_types.1degree.png' usemap='#tool_context_node_types' style="max-width:100%;" border='0' alt='' align='top'></img>
-				</div>
-				<div class="item">
 					<img src='diagrams/orphans/trase_context_node_types.1degree.png' usemap='#trase_context_node_types' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
 					<img src='diagrams/orphans/node_code_values.1degree.png' usemap='#node_code_values' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
-					<img src='diagrams/orphans/tool_nodes.1degree.png' usemap='#tool_nodes' style="max-width:100%;" border='0' alt='' align='top'></img>
+					<img src='diagrams/orphans/release_nodes.1degree.png' usemap='#release_nodes' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 				<div class="item">
 					<img src='diagrams/orphans/trase_nodes.1degree.png' usemap='#trase_nodes' style="max-width:100%;" border='0' alt='' align='top'></img>
 				</div>
 			</div>
-			<map id="hard_coded_tool_node_types" name="hard_coded_tool_node_types">
+			<map id="tool_db_status" name="tool_db_status">
+<area shape="rect" id="node1" href="tables/tool_db_status.html" title="tool_db_status" alt="" coords="5,5,264,104">
+</map>
+<map id="hard_coded_tool_node_types" name="hard_coded_tool_node_types">
 <area shape="rect" id="node1" href="tables/hard_coded_tool_node_types.html" title="hard_coded_tool_node_types" alt="" coords="5,5,437,133">
 </map>
 <map id="version_years" name="version_years">
 <area shape="rect" id="node1" href="tables/version_years.html" title="version_years" alt="" coords="5,5,240,133">
+</map>
+<map id="context_node_types" name="context_node_types">
+<area shape="rect" id="node1" href="tables/context_node_types.html" title="context_node_types" alt="" coords="5,5,295,163">
 </map>
 <map id="node_codes" name="node_codes">
 <area shape="rect" id="node1" href="tables/node_codes.html" title="node_codes" alt="" coords="5,5,284,163">
@@ -127,17 +136,14 @@
 <map id="node_names" name="node_names">
 <area shape="rect" id="node1" href="tables/node_names.html" title="node_names" alt="" coords="5,5,291,163">
 </map>
-<map id="tool_context_node_types" name="tool_context_node_types">
-<area shape="rect" id="node1" href="tables/tool_context_node_types.html" title="tool_context_node_types" alt="" coords="5,5,337,163">
-</map>
 <map id="trase_context_node_types" name="trase_context_node_types">
 <area shape="rect" id="node1" href="tables/trase_context_node_types.html" title="trase_context_node_types" alt="" coords="5,5,349,163">
 </map>
 <map id="node_code_values" name="node_code_values">
 <area shape="rect" id="node1" href="tables/node_code_values.html" title="node_code_values" alt="" coords="5,5,341,221">
 </map>
-<map id="tool_nodes" name="tool_nodes">
-<area shape="rect" id="node1" href="tables/tool_nodes.html" title="tool_nodes" alt="" coords="5,5,276,221">
+<map id="release_nodes" name="release_nodes">
+<area shape="rect" id="node1" href="tables/release_nodes.html" title="release_nodes" alt="" coords="5,5,308,221">
 </map>
 <map id="trase_nodes" name="trase_nodes">
 <area shape="rect" id="node1" href="tables/trase_nodes.html" title="trase_nodes" alt="" coords="5,5,288,221">

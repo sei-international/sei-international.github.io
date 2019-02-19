@@ -1,12 +1,13 @@
 version_years
 trase_nodes
 trase_context_node_types
-tool_nodes
-tool_context_node_types
+tool_db_status
+release_nodes
 node_names
 node_codes
 node_code_values
 hard_coded_tool_node_types
+context_node_types
 step_quals
 step_quants
 step_inds

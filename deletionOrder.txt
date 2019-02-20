@@ -41,7 +41,6 @@ commodity_code_values
 version_node_types
 country_levels
 commodity_names
-commodity_equivalence_factors
 node_roles
 cost_refs
 commodity_codes
@@ -51,6 +50,7 @@ steps
 quants
 quals
 inds
+commodity_equivalence_factors
 flows
 contexts
 refs

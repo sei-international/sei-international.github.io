@@ -9,6 +9,7 @@ commodities
 refs
 contexts
 flows
+commodity_equivalence_factors
 inds
 quals
 quants
@@ -18,7 +19,6 @@ versions
 commodity_codes
 cost_refs
 node_roles
-commodity_equivalence_factors
 commodity_names
 country_levels
 version_node_types

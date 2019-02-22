@@ -25,15 +25,17 @@
          <column autoUpdated="false" digits="0" id="1" name="parent_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodities_parent_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
          </column>
+         <column autoUpdated="false" digits="0" id="2" name="unit" nullable="true" remarks="" size="2147483647" type="text"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="commodities_pkey" unique="true">
             <column ascending="true" name="id"/>
          </index>
       </table>
-      <table name="commodities_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT parent_names.name AS parent_commodity_name,&#10;    commodity_names.name AS commodity_name,&#10;    array_agg(commodity_code_values.value ORDER BY commodity_code_values.value) AS hs_codes&#10;   FROM ((((commodities&#10;     JOIN commodity_names ON ((commodity_names.com_id = commodities.id)))&#10;     JOIN commodity_names parent_names ON ((parent_names.com_id = commodities.parent_id)))&#10;     JOIN commodity_code_values ON ((commodity_code_values.com_id = commodities.id)))&#10;     JOIN commodity_codes ON ((commodity_codes.id = commodity_code_values.com_code_id)))&#10;  WHERE (commodity_names.is_default AND parent_names.is_default AND (commodity_codes.name ~~ 'HS%'::text))&#10;  GROUP BY parent_names.name, commodity_names.name, commodities.parent_id&#10;  ORDER BY commodities.parent_id;">
+      <table name="commodities_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT parent_names.name AS parent_commodity_name,&#10;    commodity_names.name AS commodity_name,&#10;    commodity_names.com_id,&#10;    array_agg(commodity_code_values.value ORDER BY commodity_code_values.value) AS hs_codes&#10;   FROM ((((commodities&#10;     JOIN commodity_names ON ((commodity_names.com_id = commodities.id)))&#10;     JOIN commodity_names parent_names ON ((parent_names.com_id = commodities.parent_id)))&#10;     JOIN commodity_code_values ON ((commodity_code_values.com_id = commodities.id)))&#10;     JOIN commodity_codes ON ((commodity_codes.id = commodity_code_values.com_code_id)))&#10;  WHERE (commodity_names.is_default AND parent_names.is_default AND (commodity_codes.name ~~ 'HS%'::text))&#10;  GROUP BY parent_names.name, commodity_names.name, commodity_names.com_id, commodities.parent_id&#10;  ORDER BY commodities.parent_id;">
          <column autoUpdated="false" digits="0" id="0" name="parent_commodity_name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="1" name="commodity_name" nullable="true" remarks="" size="2147483647" type="text"/>
-         <column autoUpdated="false" digits="0" id="2" name="hs_codes" nullable="true" remarks="" size="2147483647" type="_text"/>
+         <column autoUpdated="false" digits="0" id="2" name="com_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="hs_codes" nullable="true" remarks="" size="2147483647" type="_text"/>
       </table>
       <table name="commodity_code_refs" numRows="3" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('commodity_code_refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
@@ -71,6 +73,7 @@
          <column autoUpdated="false" digits="0" id="2" name="ref_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodity_codes_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_code_refs"/>
          </column>
+         <column autoUpdated="false" digits="0" id="3" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="commodity_codes_pkey" unique="true">
             <column ascending="true" name="id"/>
@@ -734,7 +737,7 @@
             <column ascending="true" name="name"/>
          </index>
       </table>
-      <table name="reference_node_roles" numRows="206" remarks="" schema="public" type="TABLE">
+      <table name="reference_node_roles" numRows="336" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="ref_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="reference_node_roles_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="refs"/>
          </column>
@@ -747,7 +750,7 @@
             <column ascending="true" name="position"/>
          </index>
       </table>
-      <table name="refs" numRows="238" remarks="" schema="public" type="TABLE">
+      <table name="refs" numRows="239" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ref_id" foreignKey="flow_inds_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_inds"/>
             <child column="ref_id" foreignKey="flow_quals_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_quals"/>

@@ -57,6 +57,6 @@ node_types
 link_types
 commodity_equivalence_refs
 commodity_codes
-commodity_equivalence_group_refs
+commodity_equivalence_groups
 releases
 nodes

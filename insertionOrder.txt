@@ -1,6 +1,6 @@
 nodes
 releases
-commodity_equivalence_group_refs
+commodity_equivalence_groups
 commodity_codes
 commodity_equivalence_refs
 link_types

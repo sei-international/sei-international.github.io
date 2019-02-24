@@ -128,11 +128,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>trase_context_node_types</td>
+					 <td>refs</td>
 					 <td>Table</td>
-					 <td>id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td>quality_control_passed</td>
+					 <td>bool</td>
+					 <td>1</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -251,7 +251,7 @@
 					<tr>
 					 <td>flows</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_eq_group_ref_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_eq_group_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -315,9 +315,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>nodes</td>
+					 <td>country_levels</td>
 					 <td>Table</td>
-					 <td>entity_id</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>name</td>
 					 <td>text</td>
 					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
@@ -326,14 +326,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>tool_db_status</td>
+					 <td>commodity_equivalence_groups</td>
 					 <td>Table</td>
-					 <td>refreshing_views</td>
-					 <td>bool</td>
-					 <td>1</td>
-					 <td title='nullable'>√</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>serial</td>
+					 <td>10</td>
 					 <td title=''></td>
-					 <td>false</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;commodity_equivalence_group_refs_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -359,11 +359,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>trase_context_node_types</td>
+					 <td>refs</td>
 					 <td>Table</td>
-					 <td>context_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
+					 <td>int8</td>
+					 <td>19</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -414,9 +414,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>reference_node_roles</td>
+					 <td>release_node_inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>node_role_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -469,20 +469,20 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>inds</td>
+					 <td>tool_db_status</td>
 					 <td>Table</td>
-					 <td>scale</td>
-					 <td>text</td>
-					 <td>2147483647</td>
+					 <td>refreshing_views</td>
+					 <td>bool</td>
+					 <td>1</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td>false</td>
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>step_refs</td>
+					 <td>inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -493,10 +493,10 @@
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>ref_id</td>
-					 <td>int4</td>
-					 <td>10</td>
-					 <td title=''></td>
+					 <td>parent_id</td>
+					 <td>int8</td>
+					 <td>19</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -559,9 +559,9 @@
 					<tr>
 					 <td>link_quants</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>link_id</td>
+					 <td>int8</td>
+					 <td>19</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -920,22 +920,22 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>country_levels</td>
+					 <td>trader_parents</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>name</td>
-					 <td>text</td>
-					 <td>2147483647</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>parent_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>link_quants</td>
+					 <td>step_quants</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>link_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -986,14 +986,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_equivalence_group_refs</td>
+					 <td>link_quants</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>serial</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
+					 <td>int4</td>
 					 <td>10</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;commodity_equivalence_group_refs_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -1043,9 +1043,9 @@
 					<tr>
 					 <td>refs</td>
 					 <td>Table</td>
-					 <td>quality_control_passed</td>
-					 <td>bool</td>
-					 <td>1</td>
+					 <td>description</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1063,11 +1063,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>cost_refs</td>
+					 <td>flow_quants</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1085,12 +1085,12 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>cost_refs</td>
+					 <td>flow_quants</td>
 					 <td>Table</td>
-					 <td>description</td>
-					 <td>text</td>
-					 <td>2147483647</td>
-					 <td title='nullable'>√</td>
+					 <td>value</td>
+					 <td>float8</td>
+					 <td>17</td>
+					 <td title=''></td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -1107,14 +1107,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>cost_refs</td>
+					 <td>flow_quants</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>serial</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>flow_id</td>
+					 <td>int8</td>
+					 <td>19</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;cost_refs_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -1186,12 +1186,12 @@
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>level</td>
-					 <td>int2</td>
-					 <td>5</td>
-					 <td title='nullable'>√</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>bigserial</td>
+					 <td>19</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;nodes_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -1230,7 +1230,7 @@
 					<tr>
 					 <td>commodity_equivalence_group_factors</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_eq_group_ref_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_eq_group_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -1294,12 +1294,12 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>link_quants</td>
+					 <td>step_quants</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
-					 <td>int4</td>
-					 <td>10</td>
-					 <td title='nullable'>√</td>
+					 <td>value</td>
+					 <td>float8</td>
+					 <td>17</td>
+					 <td title=''></td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -1503,14 +1503,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>flow_quants</td>
+					 <td>cost_refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>flow_id</td>
-					 <td>int8</td>
-					 <td>19</td>
-					 <td title='nullable'>√</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>serial</td>
+					 <td>10</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;cost_refs_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -1525,11 +1525,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>trader_parents</td>
+					 <td>step_refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>parent_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>step_id</td>
+					 <td>int8</td>
+					 <td>19</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1637,9 +1637,9 @@
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>parent_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td>entity_id</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1723,9 +1723,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>step_quants</td>
+					 <td>trase_context_node_types</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
+					 <td>position</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -1734,12 +1734,12 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_equivalence_group_refs</td>
+					 <td>link_quants</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>title</td>
-					 <td>text</td>
-					 <td>2147483647</td>
-					 <td title='nullable'>√</td>
+					 <td>value</td>
+					 <td>float8</td>
+					 <td>17</td>
+					 <td title=''></td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -1855,22 +1855,22 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>refs</td>
+					 <td>commodity_code_values</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>serial</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
+					 <td>int4</td>
 					 <td>10</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;refs_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>time_start</td>
-					 <td>timestamp</td>
-					 <td>29</td>
+					 <td>type_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1899,11 +1899,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>country_levels</td>
+					 <td>step_refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1921,11 +1921,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>step_refs</td>
+					 <td>inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>step_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -1943,9 +1943,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>inds</td>
+					 <td>commodity_equivalence_groups</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>name</td>
+					 <td>description</td>
 					 <td>text</td>
 					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
@@ -1954,11 +1954,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>step_quants</td>
+					 <td>trase_context_node_types</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>step_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td>context_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2031,9 +2031,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_node_inds</td>
+					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>context_id</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>position</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2108,9 +2108,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_node_inds</td>
+					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2121,20 +2121,20 @@
 					<tr>
 					 <td>country_levels</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>serial</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
+					 <td>int8</td>
+					 <td>19</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;country_levels_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
 					 <td>step_quants</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>step_id</td>
+					 <td>int8</td>
+					 <td>19</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2218,11 +2218,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>country_levels</td>
+					 <td>trader_parents</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>level</td>
-					 <td>int2</td>
-					 <td>5</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>trader_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2295,11 +2295,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>flow_quants</td>
+					 <td>cost_refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td>title</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2339,11 +2339,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>refs</td>
+					 <td>commodity_code_values</td>
 					 <td>Table</td>
-					 <td>type</td>
-					 <td>ref_type</td>
-					 <td>2147483647</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_code_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2372,9 +2372,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>refs</td>
+					 <td>commodity_code_values</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>title</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>value</td>
 					 <td>text</td>
 					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
@@ -2396,7 +2396,7 @@
 					<tr>
 					 <td>inds</td>
 					 <td>Table</td>
-					 <td>description</td>
+					 <td>scale</td>
 					 <td>text</td>
 					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
@@ -2462,12 +2462,12 @@
 					<tr>
 					 <td>inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
-					 <td>int4</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>serial</td>
 					 <td>10</td>
-					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;inds_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -2504,12 +2504,12 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>flow_quants</td>
+					 <td>cost_refs</td>
 					 <td>Table</td>
-					 <td>value</td>
-					 <td>float8</td>
-					 <td>17</td>
-					 <td title=''></td>
+					 <td>description</td>
+					 <td>text</td>
+					 <td>2147483647</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -2603,11 +2603,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>trader_parents</td>
+					 <td>inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>trader_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td>description</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2636,11 +2636,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_code_values</td>
+					 <td>nodes</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_code_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td>time_end</td>
+					 <td>timestamp</td>
+					 <td>29</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2649,9 +2649,9 @@
 					<tr>
 					 <td>inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>name</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2735,9 +2735,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_versions</td>
+					 <td>release_node_inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>version_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ind_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2748,21 +2748,21 @@
 					<tr>
 					 <td>refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>title</td>
+					 <td>text</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>step_quants</td>
+					 <td>trase_context_node_types</td>
 					 <td>Table</td>
-					 <td>value</td>
-					 <td>float8</td>
-					 <td>17</td>
-					 <td title=''></td>
+					 <td>id</td>
+					 <td>int8</td>
+					 <td>19</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -2812,11 +2812,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>cost_refs</td>
+					 <td>flow_quants</td>
 					 <td>Table</td>
-					 <td>title</td>
-					 <td>text</td>
-					 <td>2147483647</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>quant_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2845,23 +2845,23 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_equivalence_group_refs</td>
+					 <td>link_quants</td>
 					 <td>Table</td>
-					 <td>description</td>
-					 <td>text</td>
-					 <td>2147483647</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td>int4</td>
+					 <td>10</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_code_values</td>
+					 <td>nodes</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>value</td>
-					 <td>text</td>
-					 <td>2147483647</td>
-					 <td title='nullable'>√</td>
+					 <td>ref_id</td>
+					 <td>int4</td>
+					 <td>10</td>
+					 <td title=''></td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -2900,9 +2900,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>reference_node_roles</td>
+					 <td>release_versions</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2935,9 +2935,9 @@
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>time_end</td>
-					 <td>timestamp</td>
-					 <td>29</td>
+					 <td>level</td>
+					 <td>int2</td>
+					 <td>5</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -2977,9 +2977,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>reference_node_roles</td>
+					 <td>release_versions</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>position</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>version_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -3010,14 +3010,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>inds</td>
+					 <td>commodity_equivalence_groups</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>serial</td>
-					 <td>10</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>title</td>
+					 <td>text</td>
+					 <td>2147483647</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;inds_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -3032,14 +3032,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>nodes</td>
+					 <td>country_levels</td>
 					 <td>Table</td>
-					 <td>type_id</td>
-					 <td>int4</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>serial</td>
 					 <td>10</td>
-					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;country_levels_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -3100,9 +3100,9 @@
 					<tr>
 					 <td>refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
-					 <td>int8</td>
-					 <td>19</td>
+					 <td>type</td>
+					 <td>ref_type</td>
+					 <td>2147483647</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -3120,14 +3120,14 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>nodes</td>
+					 <td>country_levels</td>
 					 <td>Table</td>
-					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-					 <td>bigserial</td>
-					 <td>19</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>level</td>
+					 <td>int2</td>
+					 <td>5</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
-					 <td title='Automatically updated by the database'>√</td>
-					 <td>nextval(&#39;nodes_id_seq&#39;::regclass)</td>
+					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -3144,12 +3144,12 @@
 					<tr>
 					 <td>refs</td>
 					 <td>Table</td>
-					 <td>description</td>
-					 <td>text</td>
-					 <td>2147483647</td>
-					 <td title='nullable'>√</td>
+					 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+					 <td>serial</td>
+					 <td>10</td>
 					 <td title=''></td>
-					 <td>null</td>
+					 <td title='Automatically updated by the database'>√</td>
+					 <td>nextval(&#39;refs_id_seq&#39;::regclass)</td>
 					 <td></td>
 					</tr>
 					<tr>
@@ -3219,20 +3219,20 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>commodity_code_values</td>
+					 <td>nodes</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td>time_start</td>
+					 <td>timestamp</td>
+					 <td>29</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_node_inds</td>
+					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ind_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>node_role_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -3351,12 +3351,12 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>link_quants</td>
+					 <td>step_quants</td>
 					 <td>Table</td>
-					 <td>value</td>
-					 <td>float8</td>
-					 <td>17</td>
-					 <td title=''></td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td>int4</td>
+					 <td>10</td>
+					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
 					 <td></td>
@@ -3373,11 +3373,11 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>flow_quants</td>
+					 <td>cost_refs</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
-					 <td>int4</td>
-					 <td>10</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>country_id</td>
+					 <td>int8</td>
+					 <td>19</td>
 					 <td title='nullable'>√</td>
 					 <td title=''></td>
 					 <td>null</td>
@@ -3395,9 +3395,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_versions</td>
+					 <td>release_node_inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>context_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -3461,9 +3461,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>trase_context_node_types</td>
+					 <td>refs</td>
 					 <td>Table</td>
-					 <td>position</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>com_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>

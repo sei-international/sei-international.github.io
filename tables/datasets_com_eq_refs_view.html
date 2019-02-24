@@ -196,7 +196,7 @@
 			  </div>
 			</div>	
 			<div class="box-body">
-				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT DISTINCT refs.id AS ref_id,&#10;    refs.title AS ref_title,&#10;    commodity_equivalence_group_refs.id AS com_eq_ref_id,&#10;    commodity_equivalence_group_refs.title AS com_eq_ref_group_title&#10;   FROM ((refs&#10;     JOIN flows ON ((refs.id = flows.ref_id)))&#10;     JOIN commodity_equivalence_group_refs ON ((commodity_equivalence_group_refs.id = flows.com_eq_group_ref_id)));</textarea>
+				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT DISTINCT refs.id AS ref_id,&#10;    refs.title AS ref_title,&#10;    commodity_equivalence_groups.id AS com_eq_ref_id,&#10;    commodity_equivalence_groups.title AS com_eq_ref_group_title&#10;   FROM ((refs&#10;     JOIN flows ON ((refs.id = flows.ref_id)))&#10;     JOIN commodity_equivalence_groups ON ((commodity_equivalence_groups.id = flows.com_eq_group_id)));</textarea>
 				<div style="padding-top: 5px;"><hr></div>
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -206,8 +206,8 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 					  <ul class="list-unstyled">
-						<li><a href="commodity_equivalence_group_refs.html">commodity_equivalence_group_refs</a></li>
 						<li><a href="refs.html">refs</a></li>
+						<li><a href="commodity_equivalence_groups.html">commodity_equivalence_groups</a></li>
 						<li><a href="flows.html">flows</a></li>
 					  </ul>
 					</div>

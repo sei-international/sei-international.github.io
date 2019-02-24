@@ -269,7 +269,7 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="com_eq_group_ref_id">com_eq_group_ref_id</span></td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="com_eq_group_id">com_eq_group_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -282,8 +282,8 @@
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
 				   <tr>
-					<td title="flows.com_eq_group_ref_id references commodity_equivalence_group_refs.id via flows_com_eq_group_ref_id_fkey">
-						<a href='commodity_equivalence_group_refs.html'>commodity_equivalence_group_refs</a><span class='relatedKey'>.id</span>
+					<td title="flows.com_eq_group_id references commodity_equivalence_groups.id via flows_com_eq_group_ref_id_fkey">
+						<a href='commodity_equivalence_groups.html'>commodity_equivalence_groups</a><span class='relatedKey'>.id</span>
 					</td>
 					<td class="constraint detail">
 						flows_com_eq_group_ref_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
@@ -360,51 +360,51 @@
             <div class="tab-content no-padding">            
 				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="flow_inds.html" title="flow_inds" alt="" coords="1057,427,1205,603">
-<area shape="rect" id="node2" href="flows.html" title="flows" alt="" coords="633,391,985,665">
-<area shape="rect" id="node3" href="refs.html" title="refs" alt="" coords="277,671,532,876">
-<area shape="rect" id="node7" href="commodity_equivalence_group_refs.html" title="commodity_equivalence_group_refs" alt="" coords="220,507,589,653">
+<area shape="rect" id="node1" href="flow_inds.html" title="flow_inds" alt="" coords="990,427,1138,603">
+<area shape="rect" id="node2" href="flows.html" title="flows" alt="" coords="600,391,919,665">
+<area shape="rect" id="node3" href="refs.html" title="refs" alt="" coords="261,671,515,876">
+<area shape="rect" id="node7" href="commodity_equivalence_groups.html" title="commodity_equivalence_groups" alt="" coords="220,507,556,653">
 <area shape="rect" id="node8" href="commodities.html" title="commodities" alt="" coords="5,423,176,569">
-<area shape="rect" id="node4" href="flow_paths.html" title="flow_paths" alt="" coords="1052,257,1209,409">
-<area shape="rect" id="node5" href="flow_quals.html" title="flow_quals" alt="" coords="1053,813,1209,989">
-<area shape="rect" id="node6" href="flow_quants.html" title="flow_quants" alt="" coords="1048,620,1213,796">
-<area shape="rect" id="node9" href="steps.html" title="steps" alt="" coords="1029,5,1232,240">
+<area shape="rect" id="node4" href="flow_paths.html" title="flow_paths" alt="" coords="985,257,1143,409">
+<area shape="rect" id="node5" href="flow_quals.html" title="flow_quals" alt="" coords="986,813,1142,989">
+<area shape="rect" id="node6" href="flow_quants.html" title="flow_quants" alt="" coords="981,620,1147,796">
+<area shape="rect" id="node9" href="steps.html" title="steps" alt="" coords="963,5,1165,240">
 </map>
 
 					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/flows.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="commodity_code_values.html" title="commodity_code_values" alt="" coords="278,5,531,93">
+<area shape="rect" id="node1" href="commodity_code_values.html" title="commodity_code_values" alt="" coords="261,5,515,93">
 <area shape="rect" id="node2" href="commodities.html" title="commodities" alt="" coords="5,731,176,877">
-<area shape="rect" id="node3" href="commodity_equivalence_factors.html" title="commodity_equivalence_factors" alt="" coords="251,360,558,448">
+<area shape="rect" id="node3" href="commodity_equivalence_factors.html" title="commodity_equivalence_factors" alt="" coords="235,360,541,448">
 <area shape="rect" id="node4" href="nodes.html" title="nodes" alt="" coords="9,1449,173,1537">
-<area shape="rect" id="node5" href="commodity_equivalence_group_factors.html" title="commodity_equivalence_group_factors" alt="" coords="633,360,991,448">
-<area shape="rect" id="node6" href="commodity_equivalence_group_refs.html" title="commodity_equivalence_group_refs" alt="" coords="220,571,589,717">
-<area shape="rect" id="node7" href="commodity_names.html" title="commodity_names" alt="" coords="298,111,511,199">
-<area shape="rect" id="node8" href="contexts.html" title="contexts" alt="" coords="334,1396,475,1484">
-<area shape="rect" id="node9" href="flow_inds.html" title="flow_inds" alt="" coords="1062,977,1210,1153">
-<area shape="rect" id="node10" href="flows.html" title="flows" alt="" coords="636,784,988,1059">
-<area shape="rect" id="node11" href="inds.html" title="inds" alt="" coords="335,1501,475,1589">
-<area shape="rect" id="node12" href="refs.html" title="refs" alt="" coords="277,1141,532,1347">
-<area shape="rect" id="node13" href="flow_paths.html" title="flow_paths" alt="" coords="1057,1649,1215,1801">
-<area shape="rect" id="node14" href="flow_quals.html" title="flow_quals" alt="" coords="1058,1276,1214,1452">
-<area shape="rect" id="node15" href="quals.html" title="quals" alt="" coords="335,1716,475,1804">
-<area shape="rect" id="node16" href="flow_quants.html" title="flow_quants" alt="" coords="1053,784,1219,960">
-<area shape="rect" id="node17" href="quants.html" title="quants" alt="" coords="335,465,475,553">
-<area shape="rect" id="node18" href="link_inds.html" title="link_inds" alt="" coords="1064,1171,1208,1259">
-<area shape="rect" id="node19" href="links.html" title="links" alt="" coords="746,607,878,695">
-<area shape="rect" id="node20" href="link_quants.html" title="link_quants" alt="" coords="1055,643,1217,731">
-<area shape="rect" id="node21" href="node_inds.html" title="node_inds" alt="" coords="735,1611,889,1699">
-<area shape="rect" id="node22" href="node_quals.html" title="node_quals" alt="" coords="731,1716,893,1804">
-<area shape="rect" id="node23" href="node_quants.html" title="node_quants" alt="" coords="726,465,898,553">
-<area shape="rect" id="node24" href="reference_node_roles.html" title="reference_node_roles" alt="" coords="695,1112,929,1200">
-<area shape="rect" id="node25" href="step_inds.html" title="step_inds" alt="" coords="1290,1397,1439,1485">
-<area shape="rect" id="node26" href="steps.html" title="steps" alt="" coords="1035,391,1237,625">
-<area shape="rect" id="node27" href="step_quals.html" title="step_quals" alt="" coords="1286,1503,1443,1591">
-<area shape="rect" id="node28" href="step_quants.html" title="step_quants" alt="" coords="1281,317,1448,405">
-<area shape="rect" id="node29" href="step_refs.html" title="step_refs" alt="" coords="1292,567,1437,655">
-<area shape="rect" id="node30" href="versions.html" title="versions" alt="" coords="741,1397,883,1485">
+<area shape="rect" id="node5" href="commodity_equivalence_group_factors.html" title="commodity_equivalence_group_factors" alt="" coords="600,360,957,448">
+<area shape="rect" id="node6" href="commodity_equivalence_groups.html" title="commodity_equivalence_groups" alt="" coords="220,571,556,717">
+<area shape="rect" id="node7" href="commodity_names.html" title="commodity_names" alt="" coords="281,111,495,199">
+<area shape="rect" id="node8" href="contexts.html" title="contexts" alt="" coords="317,1396,459,1484">
+<area shape="rect" id="node9" href="flow_inds.html" title="flow_inds" alt="" coords="1029,977,1177,1153">
+<area shape="rect" id="node10" href="flows.html" title="flows" alt="" coords="619,784,938,1059">
+<area shape="rect" id="node11" href="inds.html" title="inds" alt="" coords="318,1501,458,1589">
+<area shape="rect" id="node12" href="refs.html" title="refs" alt="" coords="261,1141,515,1347">
+<area shape="rect" id="node13" href="flow_paths.html" title="flow_paths" alt="" coords="1024,1649,1181,1801">
+<area shape="rect" id="node14" href="flow_quals.html" title="flow_quals" alt="" coords="1025,1276,1181,1452">
+<area shape="rect" id="node15" href="quals.html" title="quals" alt="" coords="318,1716,458,1804">
+<area shape="rect" id="node16" href="flow_quants.html" title="flow_quants" alt="" coords="1020,784,1185,960">
+<area shape="rect" id="node17" href="quants.html" title="quants" alt="" coords="318,465,458,553">
+<area shape="rect" id="node18" href="link_inds.html" title="link_inds" alt="" coords="1031,1171,1175,1259">
+<area shape="rect" id="node19" href="links.html" title="links" alt="" coords="713,607,845,695">
+<area shape="rect" id="node20" href="link_quants.html" title="link_quants" alt="" coords="1022,643,1183,731">
+<area shape="rect" id="node21" href="node_inds.html" title="node_inds" alt="" coords="702,1611,855,1699">
+<area shape="rect" id="node22" href="node_quals.html" title="node_quals" alt="" coords="698,1716,859,1804">
+<area shape="rect" id="node23" href="node_quants.html" title="node_quants" alt="" coords="693,465,865,553">
+<area shape="rect" id="node24" href="reference_node_roles.html" title="reference_node_roles" alt="" coords="662,1112,895,1200">
+<area shape="rect" id="node25" href="step_inds.html" title="step_inds" alt="" coords="1257,1397,1406,1485">
+<area shape="rect" id="node26" href="steps.html" title="steps" alt="" coords="1001,391,1204,625">
+<area shape="rect" id="node27" href="step_quals.html" title="step_quals" alt="" coords="1253,1503,1410,1591">
+<area shape="rect" id="node28" href="step_quants.html" title="step_quants" alt="" coords="1248,317,1415,405">
+<area shape="rect" id="node29" href="step_refs.html" title="step_refs" alt="" coords="1259,567,1404,655">
+<area shape="rect" id="node30" href="versions.html" title="versions" alt="" coords="708,1397,849,1485">
 </map>
 
 					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/flows.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							

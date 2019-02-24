@@ -24,7 +24,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "commodity_equivalence_factors":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_equivalence_factors":"elipses":w -> "nodes":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_equivalence_group_factors":"elipses":w -> "commodity_equivalence_factors":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
-  "commodity_equivalence_group_factors":"elipses":w -> "commodity_equivalence_group_refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "commodity_equivalence_group_factors":"elipses":w -> "commodity_equivalence_groups":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_names":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "contexts":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "contexts":"elipses":w -> "nodes":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -39,7 +39,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "flow_quants":"flow_id":w -> "flows":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "flow_quants":"quant_id":w -> "quants":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "flow_quants":"ref_id":w -> "refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
-  "flows":"com_eq_group_ref_id":w -> "commodity_equivalence_group_refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "flows":"com_eq_group_id":w -> "commodity_equivalence_groups":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "flows":"raw_id":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "flows":"ref_id":w -> "refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "inds":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -126,17 +126,17 @@ digraph "twoDegreesRelationshipsDiagram" {
     URL="commodity_equivalence_group_factors.html"
     tooltip="commodity_equivalence_group_factors"
   ];
-  "commodity_equivalence_group_refs" [
+  "commodity_equivalence_groups" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>commodity_equivalence_group_refs</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="240" HEIGHT="16">id</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="title" COLSPAN="3" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="240" HEIGHT="16">title</TD></TR></TABLE></TD></TR>
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>commodity_equivalence_groups</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="215" HEIGHT="16">id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="title" COLSPAN="3" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="215" HEIGHT="16">title</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
       <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">33 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2 &gt;</TD></TR>
     </TABLE>>
-    URL="commodity_equivalence_group_refs.html"
-    tooltip="commodity_equivalence_group_refs"
+    URL="commodity_equivalence_groups.html"
+    tooltip="commodity_equivalence_groups"
   ];
   "commodity_names" [
    label=<
@@ -213,13 +213,13 @@ digraph "twoDegreesRelationshipsDiagram" {
    label=<
     <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
       <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>flows</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">id</TD></TR></TABLE></TD><TD PORT="id.type" ALIGN="LEFT">bigserial[19]</TD></TR>
-      <TR><TD PORT="raw_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">raw_id</TD></TR></TABLE></TD><TD PORT="raw_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="raw_vol" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">raw_vol</TD></TR></TABLE></TD><TD PORT="raw_vol.type" ALIGN="LEFT">float8[17,17]</TD></TR>
-      <TR><TD PORT="ref_id" COLSPAN="2" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">ref_id</TD></TR></TABLE></TD><TD PORT="ref_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD PORT="time_start" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">time_start</TD></TR></TABLE></TD><TD PORT="time_start.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
-      <TR><TD PORT="time_end" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">time_end</TD></TR></TABLE></TD><TD PORT="time_end.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
-      <TR><TD PORT="com_eq_group_ref_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="140" HEIGHT="16">com_eq_group_ref_id</TD></TR></TABLE></TD><TD PORT="com_eq_group_ref_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">id</TD></TR></TABLE></TD><TD PORT="id.type" ALIGN="LEFT">bigserial[19]</TD></TR>
+      <TR><TD PORT="raw_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">raw_id</TD></TR></TABLE></TD><TD PORT="raw_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="raw_vol" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">raw_vol</TD></TR></TABLE></TD><TD PORT="raw_vol.type" ALIGN="LEFT">float8[17,17]</TD></TR>
+      <TR><TD PORT="ref_id" COLSPAN="2" BGCOLOR="#ffffff" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">ref_id</TD></TR></TABLE></TD><TD PORT="ref_id.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="time_start" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">time_start</TD></TR></TABLE></TD><TD PORT="time_start.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
+      <TR><TD PORT="time_end" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">time_end</TD></TR></TABLE></TD><TD PORT="time_end.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
+      <TR><TD PORT="com_eq_group_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="115" HEIGHT="16">com_eq_group_id</TD></TR></TABLE></TD><TD PORT="com_eq_group_id.type" ALIGN="LEFT">int4[10]</TD></TR>
       <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">5 &gt;</TD></TR>
     </TABLE>>
     URL="flows.html"

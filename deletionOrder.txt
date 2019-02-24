@@ -38,13 +38,11 @@ link_paths
 flow_paths
 commodity_equivalence_group_factors
 commodity_code_values
-version_node_types
 country_levels
 commodity_names
+versions
 node_roles
 cost_refs
-commodity_codes
-versions
 links
 steps
 quants
@@ -58,7 +56,7 @@ commodities
 node_types
 link_types
 commodity_equivalence_refs
-commodity_code_refs
+commodity_codes
 commodity_equivalence_group_refs
 releases
 nodes

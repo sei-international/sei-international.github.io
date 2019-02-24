@@ -1,7 +1,7 @@
 nodes
 releases
 commodity_equivalence_group_refs
-commodity_code_refs
+commodity_codes
 commodity_equivalence_refs
 link_types
 node_types
@@ -15,13 +15,11 @@ quals
 quants
 steps
 links
-versions
-commodity_codes
 cost_refs
 node_roles
+versions
 commodity_names
 country_levels
-version_node_types
 commodity_code_values
 commodity_equivalence_group_factors
 flow_paths

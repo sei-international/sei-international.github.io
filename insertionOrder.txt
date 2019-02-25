@@ -1,10 +1,10 @@
-nodes
 releases
 commodity_equivalence_groups
+node_types
 commodity_codes
 commodity_equivalence_refs
 link_types
-node_types
+nodes
 commodities
 refs
 contexts

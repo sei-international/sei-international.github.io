@@ -83,7 +83,7 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 			  <i class="ion ion-key"></i>
-              <h3 class="box-title">106 Foreign Key Constraints</h3>
+              <h3 class="box-title">107 Foreign Key Constraints</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -850,50 +850,6 @@
 				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
 				</tr>
 				<tr>
-				 <td>release_versions_version_id_fkey</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				   <tr>
-					<td>
-						<a href='tables/release_versions.html'>release_versions</a><span>.version_id</span>
-					</td>
-				   </tr>
-				  </table>				 
-				 </td>			 
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				   <tr>
-					<td>
-						<a href='tables/versions.html'>versions</a><span>.id</span>
-					</td>
-				   </tr>
-				  </table>				 
-				 </td>	
-				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
-				</tr>
-				<tr>
-				 <td>release_versions_release_id_fkey</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				   <tr>
-					<td>
-						<a href='tables/release_versions.html'>release_versions</a><span>.release_id</span>
-					</td>
-				   </tr>
-				  </table>				 
-				 </td>			 
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				   <tr>
-					<td>
-						<a href='tables/releases.html'>releases</a><span>.id</span>
-					</td>
-				   </tr>
-				  </table>				 
-				 </td>	
-				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
-				</tr>
-				<tr>
 				 <td>release_node_inds_ind_id_fkey</td>
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
@@ -997,6 +953,50 @@
 				   <tr>
 					<td>
 						<a href='tables/refs.html'>refs</a><span>.id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>	
+				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+				</tr>
+				<tr>
+				 <td>release_versions_version_id_fkey</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/release_versions.html'>release_versions</a><span>.version_id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>			 
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/versions.html'>versions</a><span>.id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>	
+				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+				</tr>
+				<tr>
+				 <td>release_versions_release_id_fkey</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/release_versions.html'>release_versions</a><span>.release_id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>			 
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/releases.html'>releases</a><span>.id</span>
 					</td>
 				   </tr>
 				  </table>				 
@@ -1877,6 +1877,28 @@
 				   <tr>
 					<td>
 						<a href='tables/nodes.html'>nodes</a><span>.id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>	
+				 <td><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>Restrict delete</span></td>
+				</tr>
+				<tr>
+				 <td>nodes_type_id_fkey</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/nodes.html'>nodes</a><span>.type_id</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>			 
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td>
+						<a href='tables/node_types.html'>node_types</a><span>.id</span>
 					</td>
 				   </tr>
 				  </table>				 

@@ -416,7 +416,7 @@
 					<tr>
 					 <td>release_node_inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ind_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -1868,7 +1868,7 @@
 					<tr>
 					 <td>nodes</td>
 					 <td>Table</td>
-					 <td>type_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>type_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2031,9 +2031,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>reference_node_roles</td>
+					 <td>release_versions</td>
 					 <td>Table</td>
-					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>position</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2110,7 +2110,7 @@
 					<tr>
 					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>node_role_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2735,9 +2735,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_node_inds</td>
+					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ind_id</td>
+					 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>position</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -2900,7 +2900,7 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_versions</td>
+					 <td>release_node_inds</td>
 					 <td>Table</td>
 					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>release_id</td>
 					 <td>int4</td>
@@ -2977,9 +2977,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_versions</td>
+					 <td>release_node_inds</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>version_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>context_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -3230,9 +3230,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>reference_node_roles</td>
+					 <td>release_versions</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>node_role_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>version_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>
@@ -3395,9 +3395,9 @@
 					 <td></td>
 					</tr>
 					<tr>
-					 <td>release_node_inds</td>
+					 <td>reference_node_roles</td>
 					 <td>Table</td>
-					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>context_id</td>
+					 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>ref_id</td>
 					 <td>int4</td>
 					 <td>10</td>
 					 <td title='nullable'>√</td>

@@ -53,10 +53,10 @@ flows
 contexts
 refs
 commodities
-node_types
+nodes
 link_types
 commodity_equivalence_refs
 commodity_codes
+node_types
 commodity_equivalence_groups
 releases
-nodes

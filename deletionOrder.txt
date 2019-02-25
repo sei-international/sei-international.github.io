@@ -24,9 +24,6 @@ flow_quants
 flow_quals
 flow_inds
 costs
-trase_node_quants
-trase_node_quals
-trase_node_inds
 trader_parents
 step_refs
 release_versions
@@ -49,8 +46,8 @@ quants
 quals
 inds
 commodity_equivalence_factors
-flows
 contexts
+flows
 refs
 commodities
 nodes

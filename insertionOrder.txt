@@ -7,8 +7,8 @@ link_types
 nodes
 commodities
 refs
-contexts
 flows
+contexts
 commodity_equivalence_factors
 inds
 quals
@@ -31,9 +31,6 @@ release_actor_node_quants
 release_versions
 step_refs
 trader_parents
-trase_node_inds
-trase_node_quals
-trase_node_quants
 costs
 flow_inds
 flow_quals

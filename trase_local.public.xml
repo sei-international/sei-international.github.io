@@ -156,9 +156,6 @@
             <child column="context_id" foreignKey="release_node_inds_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_inds"/>
             <child column="context_id" foreignKey="release_node_quals_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_quals"/>
             <child column="context_id" foreignKey="release_node_quants_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_quants"/>
-            <child column="context_id" foreignKey="trase_node_inds_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_inds"/>
-            <child column="context_id" foreignKey="trase_node_quals_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_quals"/>
-            <child column="context_id" foreignKey="trase_node_quants_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_quants"/>
             <child column="context_id" foreignKey="versions_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="versions"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="country_id" nullable="true" remarks="" size="19" type="int8">
@@ -395,7 +392,6 @@
             <child column="ind_id" foreignKey="release_actor_node_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_actor_node_inds"/>
             <child column="ind_id" foreignKey="release_node_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_inds"/>
             <child column="ind_id" foreignKey="step_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="step_inds"/>
-            <child column="ind_id" foreignKey="trase_node_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_inds"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="scale" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -678,7 +674,6 @@
             <child column="qual_id" foreignKey="release_actor_node_quals_qual_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_actor_node_quals"/>
             <child column="qual_id" foreignKey="release_node_quals_qual_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_quals"/>
             <child column="qual_id" foreignKey="step_quals_qual_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="step_quals"/>
-            <child column="qual_id" foreignKey="trase_node_quals_qual_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_quals"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="country_id" nullable="true" remarks="" size="10" type="int4">
@@ -704,7 +699,6 @@
             <child column="quant_id" foreignKey="release_actor_node_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_actor_node_quants"/>
             <child column="quant_id" foreignKey="release_node_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_quants"/>
             <child column="quant_id" foreignKey="step_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="step_quants"/>
-            <child column="quant_id" foreignKey="trase_node_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trase_node_quants"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="unit" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -736,7 +730,7 @@
             <column ascending="true" name="position"/>
          </index>
       </table>
-      <table name="refs" numRows="184" remarks="" schema="public" type="TABLE">
+      <table name="refs" numRows="185" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ref_id" foreignKey="flow_inds_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_inds"/>
             <child column="ref_id" foreignKey="flow_quals_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_quals"/>
@@ -1028,30 +1022,6 @@
          <column autoUpdated="false" digits="0" id="0" name="context_id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="1" name="position" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="2" name="id" nullable="true" remarks="" size="19" type="int8"/>
-      </table>
-      <table name="trase_node_inds" numRows="14" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="context_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_inds_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
-         </column>
-         <column autoUpdated="false" digits="0" id="1" name="ind_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="inds"/>
-         </column>
-      </table>
-      <table name="trase_node_quals" numRows="3" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="context_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_quals_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
-         </column>
-         <column autoUpdated="false" digits="0" id="1" name="qual_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_quals_qual_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quals"/>
-         </column>
-      </table>
-      <table name="trase_node_quants" numRows="22" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="context_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_quants_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
-         </column>
-         <column autoUpdated="false" digits="0" id="1" name="quant_id" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="trase_node_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quants"/>
-         </column>
       </table>
       <table name="trase_nodes" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="trase_id" nullable="true" remarks="" size="19" type="int8"/>

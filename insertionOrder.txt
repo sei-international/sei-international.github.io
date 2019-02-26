@@ -4,6 +4,7 @@ node_types
 commodity_codes
 commodity_equivalence_refs
 link_types
+node_codes
 nodes
 commodities
 refs
@@ -20,10 +21,12 @@ node_roles
 versions
 commodity_names
 country_levels
+node_names
 commodity_code_values
 commodity_equivalence_group_factors
 flow_paths
 link_paths
+node_code_values
 reference_node_roles
 release_actor_node_inds
 release_actor_node_quals
@@ -49,11 +52,7 @@ step_quants
 step_quals
 context_node_types
 hard_coded_tool_node_types
-node_code_values
-node_codes
-node_names
 release_nodes
 tool_db_status
-trase_context_node_types
 trase_nodes
 version_years

@@ -32,9 +32,11 @@ digraph "oneDegreeRelationshipsDiagram" {
   "link_paths":"node_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "link_quals":"qual_id":w -> "quals":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "link_quals":"ref_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
+  "node_code_values":"node_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_inds":"ind_id":w -> "inds":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_inds":"node_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_inds":"ref_id":w -> "refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "node_names":"node_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_quals":"node_id":w -> "nodes":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_quals":"qual_id":w -> "quals":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "node_quals":"ref_id":w -> "refs":"id":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -165,6 +167,18 @@ digraph "oneDegreeRelationshipsDiagram" {
     URL="link_quals.html"
     tooltip="link_quals"
   ];
+  "node_code_values" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>node_code_values</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="node_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="121" HEIGHT="16">node_id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="code_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="121" HEIGHT="16">code_id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">27,814 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+    </TABLE>>
+    URL="node_code_values.html"
+    tooltip="node_code_values"
+  ];
   "node_inds" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -179,6 +193,17 @@ digraph "oneDegreeRelationshipsDiagram" {
     </TABLE>>
     URL="node_inds.html"
     tooltip="node_inds"
+  ];
+  "node_names" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>node_names</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="node_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="83" HEIGHT="16">node_id</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">22,737 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+    </TABLE>>
+    URL="node_names.html"
+    tooltip="node_names"
   ];
   "node_quals" [
    label=<
@@ -231,7 +256,7 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="time_start" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">time_start</TD></TR></TABLE></TD><TD PORT="time_start.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
       <TR><TD PORT="time_end" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">time_end</TD></TR></TABLE></TD><TD PORT="time_end.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
       <TR><TD PORT="ref_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">ref_id</TD></TR></TABLE></TD><TD PORT="ref_id.type" ALIGN="LEFT">int4[10]</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">14,896 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">18 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">14,896 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">20 &gt;</TD></TR>
     </TABLE>>
     URL="nodes.html"
     tooltip="nodes"

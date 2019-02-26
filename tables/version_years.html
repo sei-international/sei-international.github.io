@@ -111,7 +111,7 @@
 				</thead>
 				<tbody>
 				<tr>
-				 <td><span id="version_id">version_id</span></td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="version_id">version_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -123,6 +123,14 @@
 				 </td>
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="version_years.version_id references versions.id via version_id_fkey">
+						<a href='versions.html'>versions</a><span class='relatedKey'>.id</span>
+					</td>
+					<td class="constraint detail">
+						version_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
 				  </table>					 
 				 </td>
 				 <td></td>
@@ -148,6 +156,50 @@
 				</table>
 				<p title='2 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
 			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="version_years.html" title="version_years" alt="" coords="191,5,425,133">
+<area shape="rect" id="node2" href="versions.html" title="versions" alt="" coords="5,8,147,189">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/version_years.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="release_versions.html" title="release_versions" alt="" coords="409,5,607,93">
+<area shape="rect" id="node2" href="versions.html" title="versions" alt="" coords="205,59,347,240">
+<area shape="rect" id="node4" href="contexts.html" title="contexts" alt="" coords="13,67,154,155">
+<area shape="rect" id="node5" href="refs.html" title="refs" alt="" coords="5,172,161,260">
+<area shape="rect" id="node3" href="version_years.html" title="version_years" alt="" coords="391,111,625,239">
+</map>
+
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/version_years.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
 		</div>
 	      </section>
     

@@ -16,12 +16,14 @@ quals
 quants
 steps
 links
+versions
 cost_refs
 node_roles
-versions
 commodity_names
 country_levels
 node_names
+release_nodes
+version_years
 commodity_code_values
 commodity_equivalence_group_factors
 flow_paths
@@ -50,9 +52,4 @@ release_node_quants
 step_inds
 step_quants
 step_quals
-context_node_types
 hard_coded_tool_node_types
-release_nodes
-tool_db_status
-trase_nodes
-version_years

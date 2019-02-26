@@ -1,9 +1,4 @@
-version_years
-trase_nodes
-tool_db_status
-release_nodes
 hard_coded_tool_node_types
-context_node_types
 step_quals
 step_quants
 step_inds
@@ -32,12 +27,14 @@ link_paths
 flow_paths
 commodity_equivalence_group_factors
 commodity_code_values
+version_years
+release_nodes
 node_names
 country_levels
 commodity_names
-versions
 node_roles
 cost_refs
+versions
 links
 steps
 quants

@@ -146,11 +146,6 @@
             <column ascending="true" name="name"/>
          </index>
       </table>
-      <table name="context_node_types" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="context_id" nullable="true" remarks="" size="10" type="int4"/>
-         <column autoUpdated="false" digits="0" id="1" name="position" nullable="true" remarks="" size="10" type="int4"/>
-         <column autoUpdated="false" digits="0" id="2" name="id" nullable="true" remarks="" size="19" type="int8"/>
-      </table>
       <table name="contexts" numRows="53" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('contexts_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="context_id" foreignKey="release_node_inds_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_inds"/>
@@ -659,6 +654,7 @@
             <child column="country_id" foreignKey="quals_country_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quals"/>
             <child column="country_id" foreignKey="quants_country_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quants"/>
             <child column="country_id" foreignKey="refs_country_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="refs"/>
+            <child column="main_id" foreignKey="main_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_nodes"/>
             <child column="parent_id" foreignKey="traders_parent_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="trader_parents"/>
             <child column="trader_id" foreignKey="traders_trader_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="trader_parents"/>
          </column>
@@ -851,7 +847,9 @@
       </table>
       <table name="release_nodes" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="tool_id" nullable="true" remarks="" size="19" type="int8"/>
-         <column autoUpdated="false" digits="0" id="1" name="main_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="1" name="main_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="id" foreignKey="main_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
+         </column>
          <column autoUpdated="false" digits="0" id="2" name="type_id" nullable="true" remarks="" size="19" type="int8"/>
          <column autoUpdated="false" digits="0" id="3" name="geo_id" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="4" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -1013,9 +1011,6 @@
             <column ascending="true" name="position"/>
          </index>
       </table>
-      <table name="tool_db_status" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="false" digits="0" id="0" name="refreshing_views" nullable="true" remarks="" size="1" type="bool"/>
-      </table>
       <table name="trader_parents" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="trader_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="traders_trader_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="nodes"/>
@@ -1028,20 +1023,16 @@
             <column ascending="true" name="parent_id"/>
          </index>
       </table>
-      <table name="trase_nodes" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="trase_id" nullable="true" remarks="" size="19" type="int8"/>
-         <column autoUpdated="false" digits="0" id="1" name="main_id" nullable="true" remarks="" size="19" type="int8"/>
-         <column autoUpdated="false" digits="0" id="2" name="type_id" nullable="true" remarks="" size="19" type="int8"/>
-         <column autoUpdated="false" digits="0" id="3" name="geo_id" nullable="true" remarks="" size="2147483647" type="text"/>
-         <column autoUpdated="false" digits="0" id="4" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
-      </table>
       <table name="version_years" numRows="0" remarks="" schema="public" type="TABLE">
-         <column autoUpdated="false" digits="0" id="0" name="version_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="0" name="version_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="versions"/>
+         </column>
          <column autoUpdated="false" digits="0" id="1" name="year" nullable="true" remarks="" size="10" type="int4"/>
       </table>
       <table name="versions" numRows="32" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('versions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="version_id" foreignKey="release_versions_version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_versions"/>
+            <child column="version_id" foreignKey="version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="version_years"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="context_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="versions_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>

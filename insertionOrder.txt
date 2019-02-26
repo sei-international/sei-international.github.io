@@ -1,5 +1,4 @@
 releases
-commodity_equivalence_groups
 node_types
 commodity_codes
 commodity_equivalence_refs
@@ -8,6 +7,7 @@ node_codes
 nodes
 commodities
 refs
+commodity_equivalence_groups
 flows
 contexts
 commodity_equivalence_factors

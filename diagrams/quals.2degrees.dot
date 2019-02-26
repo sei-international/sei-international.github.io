@@ -23,6 +23,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "commodity_code_values":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_equivalence_factors":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_equivalence_factors":"elipses":w -> "nodes":"id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "commodity_equivalence_groups":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "commodity_names":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "contexts":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "contexts":"elipses":w -> "nodes":"id":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -36,6 +37,7 @@ digraph "twoDegreesRelationshipsDiagram" {
   "flow_quals":"flow_id":w -> "flows":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "flow_quals":"qual_id":w -> "quals":"id.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "flow_quals":"ref_id":w -> "refs":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
+  "flows":"elipses":w -> "commodity_equivalence_groups":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "flows":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
   "flows":"elipses":w -> "refs":"elipses":e [arrowhead=none dir=back arrowtail=crowodot];
   "inds":"elipses":w -> "commodities":"id":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -86,7 +88,7 @@ digraph "twoDegreesRelationshipsDiagram" {
       <TR><TD PORT="id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="86" HEIGHT="16">id</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="parent_id" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="/home/clement/TRASE/doc/db_schema/images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="86" HEIGHT="16">parent_id</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">83 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">12 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">83 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">13 &gt;</TD></TR>
     </TABLE>>
     URL="commodities.html"
     tooltip="commodities"
@@ -110,6 +112,16 @@ digraph "twoDegreesRelationshipsDiagram" {
     </TABLE>>
     URL="commodity_equivalence_factors.html"
     tooltip="commodity_equivalence_factors"
+  ];
+  "commodity_equivalence_groups" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>commodity_equivalence_groups</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">33 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2 &gt;</TD></TR>
+    </TABLE>>
+    URL="commodity_equivalence_groups.html"
+    tooltip="commodity_equivalence_groups"
   ];
   "commodity_names" [
    label=<

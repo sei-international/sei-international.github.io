@@ -43,6 +43,7 @@ inds
 commodity_equivalence_factors
 contexts
 flows
+commodity_equivalence_groups
 refs
 commodities
 nodes
@@ -51,5 +52,4 @@ link_types
 commodity_equivalence_refs
 commodity_codes
 node_types
-commodity_equivalence_groups
 releases

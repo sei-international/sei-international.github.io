@@ -12,6 +12,7 @@
             <child column="parent_id" foreignKey="commodities_parent_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
             <child column="com_id" foreignKey="commodity_code_values_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_code_values"/>
             <child column="com_id" foreignKey="new_commodity_equivalence_factors_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_factors"/>
+            <child column="com_id" foreignKey="commodity_equivalence_groups_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_groups"/>
             <child column="com_id" foreignKey="commodity_names_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_names"/>
             <child column="com_id" foreignKey="contexts_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
             <child column="raw_id" foreignKey="flows_raw_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flows"/>
@@ -113,6 +114,9 @@
          </column>
          <column autoUpdated="false" digits="0" id="1" name="title" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="com_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="commodity_equivalence_groups_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
+         </column>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="commodity_equivalence_group_refs_pkey" unique="true">
             <column ascending="true" name="id"/>

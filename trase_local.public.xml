@@ -529,6 +529,13 @@
          <column autoUpdated="false" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="6" id="3" name="time_start" nullable="true" remarks="" size="29" type="timestamp"/>
          <column autoUpdated="false" digits="6" id="4" name="time_end" nullable="true" remarks="" size="29" type="timestamp"/>
+         <index name="node_code_values_node_id_code_id_value_time_start_time_end_idx" unique="true">
+            <column ascending="true" name="node_id"/>
+            <column ascending="true" name="code_id"/>
+            <column ascending="true" name="value"/>
+            <column ascending="true" name="time_start"/>
+            <column ascending="true" name="time_end"/>
+         </index>
       </table>
       <table name="node_codes" numRows="35" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('node_codes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
@@ -569,12 +576,15 @@
             <column ascending="true" name="ref_id"/>
          </index>
       </table>
-      <table name="node_names" numRows="22737" remarks="" schema="public" type="TABLE">
+      <table name="node_names" numRows="22738" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">
             <parent column="id" foreignKey="node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="is_default" nullable="true" remarks="" size="1" type="bool"/>
+         <index name="node_names_node_id_idx" unique="false">
+            <column ascending="true" name="node_id"/>
+         </index>
       </table>
       <table name="node_quals" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">

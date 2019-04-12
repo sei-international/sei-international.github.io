@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>datasets_view - trase_local Database</title>
+  <title>datasets_flow_inds_view - trase_local Database</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -76,7 +76,7 @@
   <div class="content-wrapper">
           <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1>datasets_view</h1></br>
+        <h1>datasets_flow_inds_view</h1></br>
 		      </section>
       <!-- Main content -->
       <section class="content">
@@ -128,23 +128,6 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td><span id="type">type</span></td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
 				 <td><span id="reference">reference</span></td>
 				 <td>text</td>
 				 <td>2147483647</td>
@@ -162,7 +145,7 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td><span id="description">description</span></td>
+				 <td><span id="ind_name">ind_name</span></td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -179,75 +162,7 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td><span id="country">country</span></td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td><span id="commodity">commodity</span></td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td><span id="raw_vol">raw_vol</span></td>
-				 <td>int8</td>
-				 <td>19</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td><span id="total_vol">total_vol</span></td>
-				 <td>int8</td>
-				 <td>19</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td><span id="year">year</span></td>
+				 <td><span id="date_part">date_part</span></td>
 				 <td>float8</td>
 				 <td>17,17</td>
 				 <td title='nullable'>√</td>
@@ -265,7 +180,7 @@
 				</tr>
 								</tbody>
 				</table>
-				<p title='9 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
+				<p title='4 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
 			</div>
 		</div>
 		<div class="box box-primary">		
@@ -281,7 +196,7 @@
 			  </div>
 			</div>	
 			<div class="box-body">
-				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT foo.ref_id,&#10;    foo.type,&#10;    foo.reference,&#10;    foo.description,&#10;    foo.country,&#10;    get_com_name(foo.parent_id) AS commodity,&#10;    foo.raw_vol,&#10;    foo.total_vol,&#10;    foo.year&#10;   FROM ( SELECT (refs.type)::text AS type,&#10;            refs.id AS ref_id,&#10;            refs.title AS reference,&#10;            refs.description,&#10;            node_names.name AS country,&#10;            get_com_parent(flows.raw_id) AS parent_id,&#10;            (sum(flows.raw_vol))::bigint AS raw_vol,&#10;            (sum(steps.volume))::bigint AS total_vol,&#10;            date_part(&#39;year&#39;::text, flows.time_start) AS year&#10;           FROM (((((refs&#10;             JOIN nodes ON ((refs.country_id = nodes.id)))&#10;             JOIN node_names ON ((nodes.id = node_names.node_id)))&#10;             FULL JOIN flows ON ((flows.ref_id = refs.id)))&#10;             JOIN steps ON ((flows.id = steps.flow_id)))&#10;             JOIN commodity_names ON ((nodes.parent_id = commodity_names.com_id)))&#10;          WHERE ((refs.type &lt;&gt; &#39;OTHER&#39;::ref_type) AND node_names.is_default AND commodity_names.is_default AND (steps.&quot;position&quot; = 0))&#10;          GROUP BY refs.id, refs.type, refs.title, refs.description, node_names.name, flows.raw_id, (date_part(&#39;year&#39;::text, flows.time_start))&#10;          ORDER BY node_names.name, (get_com_parent(flows.raw_id)), refs.title, (date_part(&#39;year&#39;::text, flows.time_start))) foo;</textarea>
+				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT refs.id AS ref_id,&#10;    refs.title AS reference,&#10;    inds.name AS ind_name,&#10;    date_part(&#39;year&#39;::text, flows.time_start) AS date_part&#10;   FROM (((flows&#10;     JOIN flow_inds ON ((flows.id = flow_inds.flow_id)))&#10;     JOIN inds ON ((flow_inds.ind_id = inds.id)))&#10;     JOIN refs ON ((flows.ref_id = refs.id)))&#10;  GROUP BY refs.id, refs.title, inds.name, (date_part(&#39;year&#39;::text, flows.time_start))&#10;  ORDER BY refs.title, inds.name, (date_part(&#39;year&#39;::text, flows.time_start));</textarea>
 				<div style="padding-top: 5px;"><hr></div>
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -291,12 +206,10 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 					  <ul class="list-unstyled">
-						<li><a href="node_names.html">node_names</a></li>
-						<li><a href="steps.html">steps</a></li>
-						<li><a href="commodity_names.html">commodity_names</a></li>
+						<li><a href="flow_inds.html">flow_inds</a></li>
+						<li><a href="inds.html">inds</a></li>
 						<li><a href="flows.html">flows</a></li>
 						<li><a href="refs.html">refs</a></li>
-						<li><a href="nodes.html">nodes</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->

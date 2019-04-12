@@ -7,7 +7,7 @@
          <column autoUpdated="false" digits="0" id="2" name="attribute_type" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="3" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
       </table>
-      <table name="commodities" numRows="83" remarks="" schema="public" type="TABLE">
+      <table name="commodities" numRows="84" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('commodities_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="parent_id" foreignKey="commodities_parent_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
             <child column="com_id" foreignKey="commodity_code_values_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_code_values"/>
@@ -17,7 +17,7 @@
             <child column="com_id" foreignKey="contexts_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
             <child column="raw_id" foreignKey="flows_raw_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flows"/>
             <child column="com_id" foreignKey="inds_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="inds"/>
-            <child column="com_id" foreignKey="links_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="links"/>
+            <child column="raw_id" foreignKey="links_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="links"/>
             <child column="com_id" foreignKey="quals_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quals"/>
             <child column="com_id" foreignKey="quants_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quants"/>
             <child column="com_id" foreignKey="refs_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="refs"/>
@@ -38,7 +38,7 @@
          <column autoUpdated="false" digits="0" id="2" name="com_id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="3" name="hs_codes" nullable="true" remarks="" size="2147483647" type="_text"/>
       </table>
-      <table name="commodity_code_values" numRows="413" remarks="" schema="public" type="TABLE">
+      <table name="commodity_code_values" numRows="414" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="com_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodity_code_values_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
          </column>
@@ -66,7 +66,7 @@
             <column ascending="true" name="name"/>
          </index>
       </table>
-      <table name="commodity_equivalence_factors" numRows="742" remarks="" schema="public" type="TABLE">
+      <table name="commodity_equivalence_factors" numRows="744" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('new_commodity_equivalence_factors_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="com_eq_factor_id" foreignKey="commodity_equivalence_group_factors_com_eq_factor_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_group_factors"/>
             <child column="com_eq_factor_id" foreignKey="steps_com_eq_factor_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="steps"/>
@@ -95,7 +95,7 @@
             <column ascending="true" name="ref_id"/>
          </index>
       </table>
-      <table name="commodity_equivalence_group_factors" numRows="1018" remarks="" schema="public" type="TABLE">
+      <table name="commodity_equivalence_group_factors" numRows="1022" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="com_eq_group_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodity_equivalence_group_factors_com_eq_group_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_groups"/>
          </column>
@@ -125,7 +125,7 @@
             <column ascending="true" name="title"/>
          </index>
       </table>
-      <table name="commodity_equivalence_refs" numRows="8" remarks="" schema="public" type="TABLE">
+      <table name="commodity_equivalence_refs" numRows="9" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('new_commodity_equivalence_refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ref_id" foreignKey="new_commodity_equivalence_factors_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_factors"/>
          </column>
@@ -139,7 +139,7 @@
             <column ascending="true" name="title"/>
          </index>
       </table>
-      <table name="commodity_names" numRows="119" remarks="" schema="public" type="TABLE">
+      <table name="commodity_names" numRows="120" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="com_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodity_names_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
          </column>
@@ -150,7 +150,7 @@
             <column ascending="true" name="name"/>
          </index>
       </table>
-      <table name="contexts" numRows="53" remarks="" schema="public" type="TABLE">
+      <table name="contexts" numRows="57" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('contexts_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="context_id" foreignKey="release_node_inds_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_inds"/>
             <child column="context_id" foreignKey="release_node_quals_context_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_node_quals"/>
@@ -250,6 +250,18 @@
          <column autoUpdated="false" digits="0" id="2" name="com_eq_ref_id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="3" name="com_eq_ref_group_title" nullable="true" remarks="" size="2147483647" type="text"/>
       </table>
+      <table name="datasets_flow_inds_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT refs.id AS ref_id,&#10;    refs.title AS reference,&#10;    inds.name AS ind_name,&#10;    date_part('year'::text, flows.time_start) AS date_part&#10;   FROM (((flows&#10;     JOIN flow_inds ON ((flows.id = flow_inds.flow_id)))&#10;     JOIN inds ON ((flow_inds.ind_id = inds.id)))&#10;     JOIN refs ON ((flows.ref_id = refs.id)))&#10;  GROUP BY refs.id, refs.title, inds.name, (date_part('year'::text, flows.time_start))&#10;  ORDER BY refs.title, inds.name, (date_part('year'::text, flows.time_start));">
+         <column autoUpdated="false" digits="0" id="0" name="ref_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="reference" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="ind_name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="3" name="date_part" nullable="true" remarks="" size="17" type="float8"/>
+      </table>
+      <table name="datasets_flow_quals_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT refs.id AS ref_id,&#10;    refs.title AS reference,&#10;    quals.name AS qual_name,&#10;    date_part('year'::text, flows.time_start) AS date_part&#10;   FROM (((flows&#10;     JOIN flow_quals ON ((flows.id = flow_quals.flow_id)))&#10;     JOIN quals ON ((flow_quals.qual_id = quals.id)))&#10;     JOIN refs ON ((flows.ref_id = refs.id)))&#10;  GROUP BY refs.id, refs.title, quals.name, (date_part('year'::text, flows.time_start))&#10;  ORDER BY refs.title, quals.name, (date_part('year'::text, flows.time_start));">
+         <column autoUpdated="false" digits="0" id="0" name="ref_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="reference" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="qual_name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="3" name="date_part" nullable="true" remarks="" size="17" type="float8"/>
+      </table>
       <table name="datasets_flow_quants_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT refs.id AS ref_id,&#10;    refs.title AS reference,&#10;    quants.name AS quant_name,&#10;    date_part('year'::text, flows.time_start) AS date_part,&#10;    sum(flow_quants.value) AS quant_sum&#10;   FROM (((flows&#10;     JOIN flow_quants ON ((flows.id = flow_quants.flow_id)))&#10;     JOIN quants ON ((flow_quants.quant_id = quants.id)))&#10;     JOIN refs ON ((flows.ref_id = refs.id)))&#10;  GROUP BY refs.id, refs.title, quants.name, (date_part('year'::text, flows.time_start))&#10;  ORDER BY refs.title, quants.name, (date_part('year'::text, flows.time_start));">
          <column autoUpdated="false" digits="0" id="0" name="ref_id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="1" name="reference" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -274,6 +286,22 @@
          <column autoUpdated="false" digits="0" id="6" name="raw_vol" nullable="true" remarks="" size="19" type="int8"/>
          <column autoUpdated="false" digits="0" id="7" name="total_vol" nullable="true" remarks="" size="19" type="int8"/>
          <column autoUpdated="false" digits="17" id="8" name="year" nullable="true" remarks="" size="17" type="float8"/>
+      </table>
+      <table name="equivalence_groups_view" numRows="0" remarks="" schema="public" type="VIEW" viewSql=" SELECT cegr.id AS eq_factor_group_id,&#10;    cegr.title AS eq_group,&#10;    cef.com_id,&#10;    cn.name AS commodity,&#10;    get_com_parent(cef.com_id) AS parent_commodity_id,&#10;    get_com_name(get_com_parent(cef.com_id)) AS parent_commodity,&#10;    cef.node_id,&#10;    nn.name AS location,&#10;    date_part('year'::text, cef.time_start) AS year_start,&#10;    date_part('year'::text, cef.time_end) AS year_end,&#10;    cef.eq_factor,&#10;    cef.id AS eq_factor_id,&#10;    cef.ref_id AS eq_ref_id,&#10;    ncer.title AS eq_factor_ref&#10;   FROM (((((commodity_equivalence_factors cef&#10;     JOIN commodity_equivalence_refs ncer ON ((cef.ref_id = ncer.id)))&#10;     JOIN commodity_equivalence_group_factors cegf ON ((cef.id = cegf.com_eq_factor_id)))&#10;     JOIN commodity_equivalence_groups cegr ON ((cegf.com_eq_group_id = cegr.id)))&#10;     JOIN commodity_names cn ON ((cef.com_id = cn.com_id)))&#10;     JOIN node_names nn ON ((cef.node_id = nn.node_id)))&#10;  WHERE ((cn.is_default IS TRUE) AND (nn.is_default IS TRUE))&#10;  ORDER BY cegr.title;">
+         <column autoUpdated="false" digits="0" id="0" name="eq_factor_group_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="eq_group" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="com_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="commodity" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="parent_commodity_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="parent_commodity" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="node_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="7" name="location" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="8" name="year_start" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="year_end" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="eq_factor" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="11" name="eq_factor_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="eq_ref_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="13" name="eq_factor_ref" nullable="true" remarks="" size="2147483647" type="text"/>
       </table>
       <table name="flow_inds" numRows="0" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="flow_id" nullable="true" remarks="" size="19" type="int8">
@@ -383,7 +411,7 @@
          <column autoUpdated="false" digits="0" id="0" name="id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
       </table>
-      <table name="inds" numRows="40" remarks="" schema="public" type="TABLE">
+      <table name="inds" numRows="41" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('inds_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ind_id" foreignKey="flow_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_inds"/>
             <child column="ind_id" foreignKey="link_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="link_inds"/>
@@ -500,7 +528,7 @@
          <column autoUpdated="false" digits="0" id="4" name="ref_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="links_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="refs"/>
          </column>
-         <column autoUpdated="false" digits="0" id="5" name="com_id" nullable="true" remarks="" size="10" type="int4">
+         <column autoUpdated="false" digits="0" id="5" name="raw_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="links_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
          </column>
          <primaryKey column="id" sequenceNumberInPK="1"/>
@@ -519,7 +547,7 @@
          <column autoUpdated="false" digits="17" id="7" name="year" nullable="true" remarks="" size="17" type="float8"/>
          <column autoUpdated="false" digits="0" id="8" name="quality_control_passed" nullable="true" remarks="" size="1" type="bool"/>
       </table>
-      <table name="node_code_values" numRows="28079" remarks="" schema="public" type="TABLE">
+      <table name="node_code_values" numRows="29235" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">
             <parent column="id" foreignKey="node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
          </column>
@@ -537,7 +565,7 @@
             <column ascending="true" name="time_end"/>
          </index>
       </table>
-      <table name="node_codes" numRows="35" remarks="" schema="public" type="TABLE">
+      <table name="node_codes" numRows="36" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('node_codes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="code_id" foreignKey="code_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="node_code_values"/>
          </column>
@@ -576,7 +604,7 @@
             <column ascending="true" name="ref_id"/>
          </index>
       </table>
-      <table name="node_names" numRows="22738" remarks="" schema="public" type="TABLE">
+      <table name="node_names" numRows="22876" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">
             <parent column="id" foreignKey="node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
          </column>
@@ -629,7 +657,7 @@
             <column ascending="true" name="ref_id"/>
          </index>
       </table>
-      <table name="node_roles" numRows="15" remarks="" schema="public" type="TABLE">
+      <table name="node_roles" numRows="17" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('node_roles_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="node_role_id" foreignKey="reference_node_roles_node_role_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="reference_node_roles"/>
          </column>
@@ -660,7 +688,7 @@
             <column ascending="true" name="type"/>
          </index>
       </table>
-      <table name="nodes" numRows="14896" remarks="" schema="public" type="TABLE">
+      <table name="nodes" numRows="14936" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('nodes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial">
             <child column="node_id" foreignKey="new_commodity_equivalence_factors_node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_factors"/>
             <child column="country_id" foreignKey="contexts_country_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
@@ -749,7 +777,7 @@
             <column ascending="true" name="name"/>
          </index>
       </table>
-      <table name="reference_node_roles" numRows="322" remarks="" schema="public" type="TABLE">
+      <table name="reference_node_roles" numRows="333" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="ref_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="reference_node_roles_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="refs"/>
          </column>
@@ -762,7 +790,7 @@
             <column ascending="true" name="position"/>
          </index>
       </table>
-      <table name="refs" numRows="186" remarks="" schema="public" type="TABLE">
+      <table name="refs" numRows="222" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ref_id" foreignKey="flow_inds_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_inds"/>
             <child column="ref_id" foreignKey="flow_quals_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_quals"/>
@@ -799,7 +827,7 @@
             <column ascending="true" name="title"/>
          </index>
       </table>
-      <table name="release_actor_node_inds" numRows="1" remarks="" schema="public" type="TABLE">
+      <table name="release_actor_node_inds" numRows="6" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_actor_node_inds_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
@@ -807,7 +835,7 @@
             <parent column="id" foreignKey="release_actor_node_inds_ind_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="inds"/>
          </column>
       </table>
-      <table name="release_actor_node_quals" numRows="1" remarks="" schema="public" type="TABLE">
+      <table name="release_actor_node_quals" numRows="2" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_actor_node_quals_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
@@ -823,7 +851,7 @@
             <parent column="id" foreignKey="release_actor_node_quants_quant_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="quants"/>
          </column>
       </table>
-      <table name="release_node_inds" numRows="31" remarks="" schema="public" type="TABLE">
+      <table name="release_node_inds" numRows="47" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_node_inds_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
@@ -839,7 +867,7 @@
             <column ascending="true" name="ind_id"/>
          </index>
       </table>
-      <table name="release_node_quals" numRows="7" remarks="" schema="public" type="TABLE">
+      <table name="release_node_quals" numRows="11" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_node_quals_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
@@ -855,7 +883,7 @@
             <column ascending="true" name="qual_id"/>
          </index>
       </table>
-      <table name="release_node_quants" numRows="56" remarks="" schema="public" type="TABLE">
+      <table name="release_node_quants" numRows="93" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_node_quants_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
@@ -880,15 +908,19 @@
          <column autoUpdated="false" digits="0" id="3" name="geo_id" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="4" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
       </table>
-      <table name="release_versions" numRows="34" remarks="" schema="public" type="TABLE">
+      <table name="release_versions" numRows="70" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_versions_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="releases"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="version_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="release_versions_version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="versions"/>
          </column>
+         <index name="release_versions_release_id_version_id_idx" unique="true">
+            <column ascending="true" name="release_id"/>
+            <column ascending="true" name="version_id"/>
+         </index>
       </table>
-      <table name="releases" numRows="3" remarks="" schema="public" type="TABLE">
+      <table name="releases" numRows="5" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('releases_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="release_id" foreignKey="release_actor_node_inds_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_actor_node_inds"/>
             <child column="release_id" foreignKey="release_actor_node_quals_release_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_actor_node_quals"/>
@@ -1055,7 +1087,7 @@
          </column>
          <column autoUpdated="false" digits="0" id="1" name="year" nullable="true" remarks="" size="10" type="int4"/>
       </table>
-      <table name="versions" numRows="32" remarks="" schema="public" type="TABLE">
+      <table name="versions" numRows="39" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('versions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="version_id" foreignKey="release_versions_version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_versions"/>
             <child column="version_id" foreignKey="version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="version_years"/>

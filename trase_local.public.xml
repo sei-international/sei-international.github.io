@@ -38,7 +38,7 @@
          <column autoUpdated="false" digits="0" id="2" name="com_id" nullable="true" remarks="" size="10" type="int4"/>
          <column autoUpdated="false" digits="0" id="3" name="hs_codes" nullable="true" remarks="" size="2147483647" type="_text"/>
       </table>
-      <table name="commodity_code_values" numRows="414" remarks="" schema="public" type="TABLE">
+      <table name="commodity_code_values" numRows="394" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="com_id" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="commodity_code_values_com_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodities"/>
          </column>
@@ -58,6 +58,7 @@
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="regex" nullable="true" remarks="" size="2147483647" type="text"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="commodity_codes_pkey" unique="true">
             <column ascending="true" name="id"/>
@@ -547,7 +548,7 @@
          <column autoUpdated="false" digits="17" id="7" name="year" nullable="true" remarks="" size="17" type="float8"/>
          <column autoUpdated="false" digits="0" id="8" name="quality_control_passed" nullable="true" remarks="" size="1" type="bool"/>
       </table>
-      <table name="node_code_values" numRows="29235" remarks="" schema="public" type="TABLE">
+      <table name="node_code_values" numRows="19557" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">
             <parent column="id" foreignKey="node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
          </column>
@@ -565,12 +566,13 @@
             <column ascending="true" name="time_end"/>
          </index>
       </table>
-      <table name="node_codes" numRows="36" remarks="" schema="public" type="TABLE">
+      <table name="node_codes" numRows="31" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('node_codes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="code_id" foreignKey="code_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="node_code_values"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="regex" nullable="true" remarks="" size="2147483647" type="text"/>
          <primaryKey column="id" sequenceNumberInPK="1"/>
          <index name="node_codes_pkey" unique="true">
             <column ascending="true" name="id"/>
@@ -604,7 +606,7 @@
             <column ascending="true" name="ref_id"/>
          </index>
       </table>
-      <table name="node_names" numRows="22876" remarks="" schema="public" type="TABLE">
+      <table name="node_names" numRows="22808" remarks="" schema="public" type="TABLE">
          <column autoUpdated="false" digits="0" id="0" name="node_id" nullable="true" remarks="" size="19" type="int8">
             <parent column="id" foreignKey="node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nodes"/>
          </column>
@@ -688,7 +690,7 @@
             <column ascending="true" name="type"/>
          </index>
       </table>
-      <table name="nodes" numRows="14936" remarks="" schema="public" type="TABLE">
+      <table name="nodes" numRows="14897" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('nodes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial">
             <child column="node_id" foreignKey="new_commodity_equivalence_factors_node_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="commodity_equivalence_factors"/>
             <child column="country_id" foreignKey="contexts_country_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="contexts"/>
@@ -790,7 +792,7 @@
             <column ascending="true" name="position"/>
          </index>
       </table>
-      <table name="refs" numRows="222" remarks="" schema="public" type="TABLE">
+      <table name="refs" numRows="209" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('refs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="ref_id" foreignKey="flow_inds_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_inds"/>
             <child column="ref_id" foreignKey="flow_quals_ref_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="flow_quals"/>
@@ -1087,7 +1089,7 @@
          </column>
          <column autoUpdated="false" digits="0" id="1" name="year" nullable="true" remarks="" size="10" type="int4"/>
       </table>
-      <table name="versions" numRows="39" remarks="" schema="public" type="TABLE">
+      <table name="versions" numRows="38" remarks="" schema="public" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('versions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="version_id" foreignKey="release_versions_version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="release_versions"/>
             <child column="version_id" foreignKey="version_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="version_years"/>

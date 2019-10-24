@@ -111,7 +111,7 @@
 				</thead>
 				<tbody>
 				<tr>
-				 <td><span id="eq_factor_group_id">eq_factor_group_id</span></td>
+				 <td><span id="com_eq_group_id">com_eq_group_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -366,7 +366,7 @@
 			  </div>
 			</div>	
 			<div class="box-body">
-				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT cegr.id AS eq_factor_group_id,&#10;    cegr.title AS eq_group,&#10;    cef.com_id,&#10;    cn.name AS commodity,&#10;    get_com_parent(cef.com_id) AS parent_commodity_id,&#10;    get_com_name(get_com_parent(cef.com_id)) AS parent_commodity,&#10;    cef.node_id,&#10;    nn.name AS location,&#10;    date_part(&#39;year&#39;::text, cef.time_start) AS year_start,&#10;    date_part(&#39;year&#39;::text, cef.time_end) AS year_end,&#10;    cef.eq_factor,&#10;    cef.id AS eq_factor_id,&#10;    cef.ref_id AS eq_ref_id,&#10;    ncer.title AS eq_factor_ref&#10;   FROM (((((commodity_equivalence_factors cef&#10;     JOIN commodity_equivalence_refs ncer ON ((cef.ref_id = ncer.id)))&#10;     JOIN commodity_equivalence_group_factors cegf ON ((cef.id = cegf.com_eq_factor_id)))&#10;     JOIN commodity_equivalence_groups cegr ON ((cegf.com_eq_group_id = cegr.id)))&#10;     JOIN commodity_names cn ON ((cef.com_id = cn.com_id)))&#10;     JOIN node_names nn ON ((cef.node_id = nn.node_id)))&#10;  WHERE ((cn.is_default IS TRUE) AND (nn.is_default IS TRUE))&#10;  ORDER BY cegr.title;</textarea>
+				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT cegr.id AS com_eq_group_id,&#10;    cegr.title AS eq_group,&#10;    cef.com_id,&#10;    cn.name AS commodity,&#10;    get_com_parent(cef.com_id) AS parent_commodity_id,&#10;    get_com_name(get_com_parent(cef.com_id)) AS parent_commodity,&#10;    cef.node_id,&#10;    nn.name AS location,&#10;    date_part(&#39;year&#39;::text, cef.time_start) AS year_start,&#10;    date_part(&#39;year&#39;::text, cef.time_end) AS year_end,&#10;    cef.eq_factor,&#10;    cef.id AS eq_factor_id,&#10;    cef.ref_id AS eq_ref_id,&#10;    ncer.title AS eq_factor_ref&#10;   FROM (((((commodity_equivalence_factors cef&#10;     JOIN commodity_equivalence_refs ncer ON ((cef.ref_id = ncer.id)))&#10;     JOIN commodity_equivalence_group_factors cegf ON ((cef.id = cegf.com_eq_factor_id)))&#10;     JOIN commodity_equivalence_groups cegr ON ((cegf.com_eq_group_id = cegr.id)))&#10;     JOIN commodity_names cn ON ((cef.com_id = cn.com_id)))&#10;     JOIN node_names nn ON ((cef.node_id = nn.node_id)))&#10;  WHERE ((cn.is_default IS TRUE) AND (nn.is_default IS TRUE))&#10;  ORDER BY cegr.title;</textarea>
 				<div style="padding-top: 5px;"><hr></div>
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -376,12 +376,12 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 					  <ul class="list-unstyled">
-						<li><a href="commodity_equivalence_refs.html">commodity_equivalence_refs</a></li>
-						<li><a href="commodity_names.html">commodity_names</a></li>
 						<li><a href="commodity_equivalence_groups.html">commodity_equivalence_groups</a></li>
-						<li><a href="commodity_equivalence_factors.html">commodity_equivalence_factors</a></li>
 						<li><a href="node_names.html">node_names</a></li>
+						<li><a href="commodity_names.html">commodity_names</a></li>
+						<li><a href="commodity_equivalence_refs.html">commodity_equivalence_refs</a></li>
 						<li><a href="commodity_equivalence_group_factors.html">commodity_equivalence_group_factors</a></li>
+						<li><a href="commodity_equivalence_factors.html">commodity_equivalence_factors</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->

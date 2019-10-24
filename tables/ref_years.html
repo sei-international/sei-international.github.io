@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>version_years - trase_local Database</title>
+  <title>ref_years - trase_local Database</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -76,7 +76,7 @@
   <div class="content-wrapper">
           <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1>version_years</h1></br>
+        <h1>ref_years</h1></br>
 		      </section>
       <!-- Main content -->
       <section class="content">
@@ -111,7 +111,7 @@
 				</thead>
 				<tbody>
 				<tr>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="version_id">version_id</span></td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ref_id">ref_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -124,11 +124,11 @@
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
 				   <tr>
-					<td title="version_years.version_id references versions.id via version_id_fkey">
-						<a href='versions.html'>versions</a><span class='relatedKey'>.id</span>
+					<td title="ref_years.ref_id references refs.id via ref_id_fkey">
+						<a href='refs.html'>refs</a><span class='relatedKey'>.id</span>
 					</td>
 					<td class="constraint detail">
-						version_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+						ref_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
 					</td>
 				   </tr>
 				  </table>					 
@@ -180,22 +180,37 @@
             <div class="tab-content no-padding">            
 				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="version_years.html" title="version_years" alt="" coords="191,5,425,133">
-<area shape="rect" id="node2" href="versions.html" title="versions" alt="" coords="5,8,147,189">
+<area shape="rect" id="node1" href="ref_years.html" title="ref_years" alt="" coords="304,5,497,133">
+<area shape="rect" id="node2" href="refs.html" title="refs" alt="" coords="5,8,260,213">
 </map>
 
-					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/version_years.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/ref_years.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="release_versions.html" title="release_versions" alt="" coords="409,5,607,93">
-<area shape="rect" id="node2" href="versions.html" title="versions" alt="" coords="205,59,347,240">
-<area shape="rect" id="node4" href="contexts.html" title="contexts" alt="" coords="13,67,154,155">
-<area shape="rect" id="node5" href="refs.html" title="refs" alt="" coords="5,172,161,260">
-<area shape="rect" id="node3" href="version_years.html" title="version_years" alt="" coords="391,111,625,239">
+<area shape="rect" id="node1" href="flow_inds.html" title="flow_inds" alt="" coords="810,5,958,93">
+<area shape="rect" id="node2" href="flows.html" title="flows" alt="" coords="575,111,707,199">
+<area shape="rect" id="node3" href="refs.html" title="refs" alt="" coords="225,608,480,813">
+<area shape="rect" id="node6" href="commodities.html" title="commodities" alt="" coords="8,324,179,412">
+<area shape="rect" id="node11" href="nodes.html" title="nodes" alt="" coords="5,1277,181,1365">
+<area shape="rect" id="node4" href="flow_quals.html" title="flow_quals" alt="" coords="806,111,962,199">
+<area shape="rect" id="node5" href="flow_quants.html" title="flow_quants" alt="" coords="801,216,967,304">
+<area shape="rect" id="node7" href="link_inds.html" title="link_inds" alt="" coords="812,321,956,409">
+<area shape="rect" id="node8" href="links.html" title="links" alt="" coords="575,324,707,412">
+<area shape="rect" id="node9" href="link_quants.html" title="link_quants" alt="" coords="803,427,965,515">
+<area shape="rect" id="node10" href="node_inds.html" title="node_inds" alt="" coords="564,1243,717,1331">
+<area shape="rect" id="node12" href="node_quals.html" title="node_quals" alt="" coords="560,1348,721,1436">
+<area shape="rect" id="node13" href="node_quants.html" title="node_quants" alt="" coords="555,1453,727,1541">
+<area shape="rect" id="node14" href="ref_years.html" title="ref_years" alt="" coords="544,465,737,593">
+<area shape="rect" id="node15" href="reference_node_roles.html" title="reference_node_roles" alt="" coords="524,611,757,699">
+<area shape="rect" id="node16" href="release_refs.html" title="release_refs" alt="" coords="558,716,723,804">
+<area shape="rect" id="node17" href="step_inds.html" title="step_inds" alt="" coords="566,821,715,909">
+<area shape="rect" id="node18" href="step_quals.html" title="step_quals" alt="" coords="562,927,719,1015">
+<area shape="rect" id="node19" href="step_quants.html" title="step_quants" alt="" coords="557,1032,724,1120">
+<area shape="rect" id="node20" href="step_refs.html" title="step_refs" alt="" coords="568,1137,713,1225">
 </map>
 
-					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/version_years.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/ref_years.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 			  			</div>
 			</div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>release_versions - trase_local Database</title>
+  <title>release_refs - trase_local Database</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -76,7 +76,7 @@
   <div class="content-wrapper">
           <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1>release_versions</h1></br>
+        <h1>release_refs</h1></br>
 		      </section>
       <!-- Main content -->
       <section class="content">
@@ -124,11 +124,11 @@
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
 				   <tr>
-					<td title="release_versions.release_id references releases.id via release_versions_release_id_fkey">
+					<td title="release_refs.release_id references releases.id via release_refs_release_id_fkey">
 						<a href='releases.html'>releases</a><span class='relatedKey'>.id</span>
 					</td>
 					<td class="constraint detail">
-						release_versions_release_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+						release_refs_release_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
 					</td>
 				   </tr>
 				  </table>					 
@@ -136,7 +136,7 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="version_id">version_id</span></td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ref_id">ref_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -149,11 +149,11 @@
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
 				   <tr>
-					<td title="release_versions.version_id references versions.id via release_versions_version_id_fkey">
-						<a href='versions.html'>versions</a><span class='relatedKey'>.id</span>
+					<td title="release_refs.ref_id references refs.id via release_refs_ref_id_fkey">
+						<a href='refs.html'>refs</a><span class='relatedKey'>.id</span>
 					</td>
 					<td class="constraint detail">
-						release_versions_version_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+						release_refs_ref_id_fkey <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
 					</td>
 				   </tr>
 				  </table>					 
@@ -162,7 +162,7 @@
 				</tr>
 								</tbody>
 				</table>
-				<p title='2 columns'>Table contained <span id="recordNumber">70</span> rows<p/>
+				<p title='2 columns'>Table contained <span id="recordNumber">124</span> rows<p/>
 			</div>
 		</div>
 		<div class="box box-primary">		
@@ -189,10 +189,10 @@
 				</thead>
 				<tbody>
 				 <tr>
-				  <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> release_versions_release_id_version_id_idx</td>
+				  <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> release_refs_release_id_ref_id_idx</td>
 				  <td>Must be unique</td>
 				  <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
-				  <td>release_id + version_id</td>
+				  <td>release_id + ref_id</td>
 				 </tr>				 
 				</tbody>
 				</table>   			  
@@ -221,30 +221,45 @@
             <div class="tab-content no-padding">            
 				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="release_versions.html" title="release_versions" alt="" coords="191,56,451,184">
-<area shape="rect" id="node2" href="releases.html" title="releases" alt="" coords="7,5,145,123">
-<area shape="rect" id="node3" href="versions.html" title="versions" alt="" coords="5,140,147,321">
+<area shape="rect" id="node1" href="release_refs.html" title="release_refs" alt="" coords="304,56,524,184">
+<area shape="rect" id="node2" href="refs.html" title="refs" alt="" coords="5,140,260,345">
+<area shape="rect" id="node3" href="releases.html" title="releases" alt="" coords="57,5,208,123">
 </map>
 
-					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/release_versions.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/release_refs.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="release_actor_node_inds.html" title="release_actor_node_inds" alt="" coords="214,5,470,93">
-<area shape="rect" id="node2" href="releases.html" title="releases" alt="" coords="14,281,153,399">
-<area shape="rect" id="node3" href="release_actor_node_quals.html" title="release_actor_node_quals" alt="" coords="210,111,474,199">
-<area shape="rect" id="node4" href="release_actor_node_quants.html" title="release_actor_node_quants" alt="" coords="205,216,479,304">
-<area shape="rect" id="node5" href="release_node_inds.html" title="release_node_inds" alt="" coords="236,357,448,445">
-<area shape="rect" id="node6" href="contexts.html" title="contexts" alt="" coords="13,516,154,604">
-<area shape="rect" id="node7" href="release_node_quals.html" title="release_node_quals" alt="" coords="232,463,452,551">
-<area shape="rect" id="node8" href="release_node_quants.html" title="release_node_quants" alt="" coords="227,568,457,656">
-<area shape="rect" id="node9" href="release_versions.html" title="release_versions" alt="" coords="523,405,783,533">
-<area shape="rect" id="node10" href="versions.html" title="versions" alt="" coords="271,673,413,855">
-<area shape="rect" id="node12" href="refs.html" title="refs" alt="" coords="5,764,161,852">
-<area shape="rect" id="node11" href="version_years.html" title="version_years" alt="" coords="563,676,742,764">
+<area shape="rect" id="node1" href="flow_inds.html" title="flow_inds" alt="" coords="850,5,998,93">
+<area shape="rect" id="node2" href="flows.html" title="flows" alt="" coords="595,111,727,199">
+<area shape="rect" id="node3" href="refs.html" title="refs" alt="" coords="225,568,480,773">
+<area shape="rect" id="node6" href="commodities.html" title="commodities" alt="" coords="8,324,179,412">
+<area shape="rect" id="node11" href="nodes.html" title="nodes" alt="" coords="5,1149,181,1237">
+<area shape="rect" id="node4" href="flow_quals.html" title="flow_quals" alt="" coords="846,111,1002,199">
+<area shape="rect" id="node5" href="flow_quants.html" title="flow_quants" alt="" coords="841,216,1007,304">
+<area shape="rect" id="node7" href="link_inds.html" title="link_inds" alt="" coords="852,321,996,409">
+<area shape="rect" id="node8" href="links.html" title="links" alt="" coords="595,324,727,412">
+<area shape="rect" id="node9" href="link_quants.html" title="link_quants" alt="" coords="843,427,1005,515">
+<area shape="rect" id="node10" href="node_inds.html" title="node_inds" alt="" coords="584,1097,737,1185">
+<area shape="rect" id="node12" href="node_quals.html" title="node_quals" alt="" coords="580,1203,741,1291">
+<area shape="rect" id="node13" href="node_quants.html" title="node_quants" alt="" coords="575,1308,747,1396">
+<area shape="rect" id="node14" href="ref_years.html" title="ref_years" alt="" coords="588,465,733,553">
+<area shape="rect" id="node15" href="reference_node_roles.html" title="reference_node_roles" alt="" coords="544,571,777,659">
+<area shape="rect" id="node16" href="release_actor_node_inds.html" title="release_actor_node_inds" alt="" coords="533,1559,789,1647">
+<area shape="rect" id="node17" href="releases.html" title="releases" alt="" coords="277,1767,428,1884">
+<area shape="rect" id="node18" href="release_actor_node_quals.html" title="release_actor_node_quals" alt="" coords="529,1664,793,1752">
+<area shape="rect" id="node19" href="release_actor_node_quants.html" title="release_actor_node_quants" alt="" coords="524,1769,797,1857">
+<area shape="rect" id="node20" href="release_node_inds.html" title="release_node_inds" alt="" coords="555,1875,767,1963">
+<area shape="rect" id="node21" href="release_node_quals.html" title="release_node_quals" alt="" coords="551,1980,771,2068">
+<area shape="rect" id="node22" href="release_node_quants.html" title="release_node_quants" alt="" coords="546,2085,775,2173">
+<area shape="rect" id="node23" href="release_refs.html" title="release_refs" alt="" coords="551,1413,771,1541">
+<area shape="rect" id="node24" href="step_inds.html" title="step_inds" alt="" coords="586,676,735,764">
+<area shape="rect" id="node25" href="step_quals.html" title="step_quals" alt="" coords="582,781,739,869">
+<area shape="rect" id="node26" href="step_quants.html" title="step_quants" alt="" coords="577,887,744,975">
+<area shape="rect" id="node27" href="step_refs.html" title="step_refs" alt="" coords="588,992,733,1080">
 </map>
 
-					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/release_versions.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/release_refs.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 			  			</div>
 			</div>

@@ -128,40 +128,6 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td><span id="version_id">version_id</span></td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td><span id="version">version</span></td>
-				 <td>varchar</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>				 
-				 </td>
-				 <td>
-				  <table border='0' cellspacing='0' cellpadding='0'>
-				  </table>					 
-				 </td>
-				 <td></td>
-				</tr>
-				<tr>
 				 <td><span id="context_id">context_id</span></td>
 				 <td>int4</td>
 				 <td>10</td>
@@ -182,6 +148,23 @@
 				 <td><span id="country_id">country_id</span></td>
 				 <td>int8</td>
 				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="version">version</span></td>
+				 <td>text</td>
+				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -435,7 +418,7 @@
 				</tr>
 								</tbody>
 				</table>
-				<p title='19 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
+				<p title='18 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
 			</div>
 		</div>
 		<div class="box box-primary">		
@@ -451,7 +434,7 @@
 			  </div>
 			</div>	
 			<div class="box-body">
-				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">WITH ref_years AS (&#10;         SELECT DISTINCT flows.ref_id,&#10;            date_part(&#39;year&#39;::text, flows.time_start) AS year&#10;           FROM flows&#10;        ), ref_node_roles AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_node_roles(refs_1.id) AS columns&#10;           FROM refs refs_1&#10;        ), ref_flow_quants AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_quants(refs_1.id) AS flow_quants&#10;           FROM refs refs_1&#10;        ), ref_flow_quals AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_quals(refs_1.id) AS flow_quals&#10;           FROM refs refs_1&#10;        ), ref_flow_inds AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_inds(refs_1.id) AS flow_inds&#10;           FROM refs refs_1&#10;        )&#10; SELECT DISTINCT releases.id AS release_id,&#10;    versions.id AS version_id,&#10;    versions.symbol AS version,&#10;    contexts.id AS context_id,&#10;    refs.country_id,&#10;    node_names.name AS country,&#10;    refs.com_id,&#10;    commodity_names.name AS commodity,&#10;    refs.id AS ref_id,&#10;    refs.title,&#10;    refs.quality_control_passed,&#10;    array_agg(DISTINCT ref_years.year ORDER BY ref_years.year) AS years,&#10;    ref_node_roles.columns,&#10;    ref_flow_quants.flow_quants,&#10;    ref_flow_quals.flow_quals,&#10;    ref_flow_inds.flow_inds,&#10;    array_agg(DISTINCT quants.name ORDER BY quants.name) AS node_quants,&#10;    array_agg(DISTINCT quals.name ORDER BY quals.name) AS node_quals,&#10;    array_agg(DISTINCT inds.name ORDER BY inds.name) AS node_inds&#10;   FROM (((((((((((((((((releases&#10;     FULL JOIN release_versions ON ((releases.id = release_versions.release_id)))&#10;     FULL JOIN versions ON ((release_versions.version_id = versions.id)))&#10;     FULL JOIN contexts ON ((versions.context_id = contexts.id)))&#10;     FULL JOIN refs ON ((versions.ref_id = refs.id)))&#10;     FULL JOIN commodity_names ON ((refs.com_id = commodity_names.com_id)))&#10;     FULL JOIN node_names ON ((refs.country_id = node_names.node_id)))&#10;     FULL JOIN ref_years ON ((refs.id = ref_years.ref_id)))&#10;     FULL JOIN ref_node_roles ON ((refs.id = ref_node_roles.ref_id)))&#10;     FULL JOIN ref_flow_quants ON ((refs.id = ref_flow_quants.ref_id)))&#10;     FULL JOIN ref_flow_quals ON ((refs.id = ref_flow_quals.ref_id)))&#10;     FULL JOIN ref_flow_inds ON ((refs.id = ref_flow_inds.ref_id)))&#10;     FULL JOIN release_node_quants ON (((releases.id = release_node_quants.release_id) AND (contexts.id = release_node_quants.context_id))))&#10;     FULL JOIN quants ON ((quants.id = release_node_quants.quant_id)))&#10;     FULL JOIN release_node_quals ON (((releases.id = release_node_quals.release_id) AND (contexts.id = release_node_quals.context_id))))&#10;     FULL JOIN quals ON ((quals.id = release_node_quals.qual_id)))&#10;     FULL JOIN release_node_inds ON (((releases.id = release_node_inds.release_id) AND (contexts.id = release_node_inds.context_id))))&#10;     FULL JOIN inds ON ((inds.id = release_node_inds.ind_id)))&#10;  WHERE ((refs.id IN ( SELECT DISTINCT flows.ref_id&#10;           FROM flows)) AND (commodity_names.is_default OR (commodity_names.is_default IS NULL)) AND (node_names.is_default OR (node_names.is_default IS NULL)))&#10;  GROUP BY releases.id, versions.id, versions.symbol, contexts.id, refs.country_id, node_names.name, refs.com_id, commodity_names.name, refs.id, refs.title, refs.quality_control_passed, ref_node_roles.columns, ref_flow_quants.flow_quants, ref_flow_quals.flow_quals, ref_flow_inds.flow_inds&#10;  ORDER BY releases.id, node_names.name, commodity_names.name, refs.title;</textarea>
+				<textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">WITH ref_years AS (&#10;         SELECT DISTINCT flows.ref_id,&#10;            date_part(&#39;year&#39;::text, flows.time_start) AS year&#10;           FROM flows&#10;        ), ref_node_roles AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_node_roles(refs_1.id) AS columns&#10;           FROM refs refs_1&#10;        ), ref_flow_quants AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_quants(refs_1.id) AS flow_quants&#10;           FROM refs refs_1&#10;        ), ref_flow_quals AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_quals(refs_1.id) AS flow_quals&#10;           FROM refs refs_1&#10;        ), ref_flow_inds AS (&#10;         SELECT refs_1.id AS ref_id,&#10;            get_reference_flow_inds(refs_1.id) AS flow_inds&#10;           FROM refs refs_1&#10;        )&#10; SELECT DISTINCT releases.id AS release_id,&#10;    contexts.id AS context_id,&#10;    refs.country_id,&#10;    refs.version,&#10;    node_names.name AS country,&#10;    refs.com_id,&#10;    commodity_names.name AS commodity,&#10;    refs.id AS ref_id,&#10;    refs.title,&#10;    refs.quality_control_passed,&#10;    array_agg(DISTINCT ref_years.year ORDER BY ref_years.year) AS years,&#10;    ref_node_roles.columns,&#10;    ref_flow_quants.flow_quants,&#10;    ref_flow_quals.flow_quals,&#10;    ref_flow_inds.flow_inds,&#10;    array_agg(DISTINCT quants.name ORDER BY quants.name) AS node_quants,&#10;    array_agg(DISTINCT quals.name ORDER BY quals.name) AS node_quals,&#10;    array_agg(DISTINCT inds.name ORDER BY inds.name) AS node_inds&#10;   FROM ((((((((((((((((releases&#10;     FULL JOIN release_refs ON ((releases.id = release_refs.release_id)))&#10;     FULL JOIN refs ON ((release_refs.ref_id = refs.id)))&#10;     FULL JOIN contexts ON (((contexts.country_id = refs.country_id) AND (contexts.com_id = refs.com_id))))&#10;     FULL JOIN commodity_names ON ((refs.com_id = commodity_names.com_id)))&#10;     FULL JOIN node_names ON ((refs.country_id = node_names.node_id)))&#10;     FULL JOIN ref_years ON ((refs.id = ref_years.ref_id)))&#10;     FULL JOIN ref_node_roles ON ((refs.id = ref_node_roles.ref_id)))&#10;     FULL JOIN ref_flow_quants ON ((refs.id = ref_flow_quants.ref_id)))&#10;     FULL JOIN ref_flow_quals ON ((refs.id = ref_flow_quals.ref_id)))&#10;     FULL JOIN ref_flow_inds ON ((refs.id = ref_flow_inds.ref_id)))&#10;     FULL JOIN release_node_quants ON (((releases.id = release_node_quants.release_id) AND (contexts.id = release_node_quants.context_id))))&#10;     FULL JOIN quants ON ((quants.id = release_node_quants.quant_id)))&#10;     FULL JOIN release_node_quals ON (((releases.id = release_node_quals.release_id) AND (contexts.id = release_node_quals.context_id))))&#10;     FULL JOIN quals ON ((quals.id = release_node_quals.qual_id)))&#10;     FULL JOIN release_node_inds ON (((releases.id = release_node_inds.release_id) AND (contexts.id = release_node_inds.context_id))))&#10;     FULL JOIN inds ON ((inds.id = release_node_inds.ind_id)))&#10;  WHERE ((refs.id IN ( SELECT DISTINCT flows.ref_id&#10;           FROM flows)) AND (commodity_names.is_default OR (commodity_names.is_default IS NULL)) AND (node_names.is_default OR (node_names.is_default IS NULL)))&#10;  GROUP BY releases.id, contexts.id, refs.country_id, refs.version, node_names.name, refs.com_id, commodity_names.name, refs.id, refs.title, refs.quality_control_passed, ref_node_roles.columns, ref_flow_quants.flow_quants, ref_flow_quals.flow_quals, ref_flow_inds.flow_inds&#10;  ORDER BY releases.id, node_names.name, commodity_names.name, refs.title;</textarea>
 				<div style="padding-top: 5px;"><hr></div>
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -461,26 +444,26 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 					  <ul class="list-unstyled">
-						<li><a href="node_inds.html">node_inds</a></li>
-						<li><a href="release_versions.html">release_versions</a></li>
 						<li><a href="flow_quants.html">flow_quants</a></li>
-						<li><a href="contexts.html">contexts</a></li>
-						<li><a href="refs.html">refs</a></li>
-						<li><a href="release_node_inds.html">release_node_inds</a></li>
-						<li><a href="node_quants.html">node_quants</a></li>
-						<li><a href="versions.html">versions</a></li>
-						<li><a href="flow_inds.html">flow_inds</a></li>
-						<li><a href="release_node_quants.html">release_node_quants</a></li>
-						<li><a href="flows.html">flows</a></li>
-						<li><a href="flow_quals.html">flow_quals</a></li>
-						<li><a href="commodity_names.html">commodity_names</a></li>
-						<li><a href="quants.html">quants</a></li>
-						<li><a href="release_node_quals.html">release_node_quals</a></li>
 						<li><a href="releases.html">releases</a></li>
-						<li><a href="quals.html">quals</a></li>
 						<li><a href="inds.html">inds</a></li>
+						<li><a href="flow_quals.html">flow_quals</a></li>
 						<li><a href="node_names.html">node_names</a></li>
+						<li><a href="node_quants.html">node_quants</a></li>
 						<li><a href="node_quals.html">node_quals</a></li>
+						<li><a href="flows.html">flows</a></li>
+						<li><a href="commodity_names.html">commodity_names</a></li>
+						<li><a href="contexts.html">contexts</a></li>
+						<li><a href="quants.html">quants</a></li>
+						<li><a href="release_node_inds.html">release_node_inds</a></li>
+						<li><a href="flow_inds.html">flow_inds</a></li>
+						<li><a href="ref_years.html">ref_years</a></li>
+						<li><a href="node_inds.html">node_inds</a></li>
+						<li><a href="release_node_quants.html">release_node_quants</a></li>
+						<li><a href="release_refs.html">release_refs</a></li>
+						<li><a href="refs.html">refs</a></li>
+						<li><a href="release_node_quals.html">release_node_quals</a></li>
+						<li><a href="quals.html">quals</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->
